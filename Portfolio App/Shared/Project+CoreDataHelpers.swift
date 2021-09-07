@@ -35,8 +35,27 @@ extension Project {
     }
     
     var projectItems: [Item] {
-            let itemsArray = items?.allObjects as? [Item] ?? []
-            return itemsArray
+        let itemsArray = items?.allObjects as? [Item] ?? []
+
+        return itemsArray.sorted { first, second in
+            if first.completed == false {
+                if second.completed == true {
+                    return true
+                }
+            } else if first.completed == true {
+                if second.completed == false {
+                    return false
+                }
+            }
+
+            if first.priority > second.priority {
+                return true
+            } else if first.priority < second.priority {
+                return false
+            }
+
+            return first.itemCreationDate < second.itemCreationDate
+        }
     }
     
     var completionAmount: Double {
