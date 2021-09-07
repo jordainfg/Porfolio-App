@@ -35,9 +35,11 @@ extension Project {
     }
     
     var projectItems: [Item] {
-        let itemsArray = items?.allObjects as? [Item] ?? []
-
-        return itemsArray.sorted { first, second in
+        items?.allObjects as? [Item] ?? []
+    }
+    
+    var projectItemsDefaultSorted: [Item] {
+        return projectItems.sorted { first, second in
             if first.completed == false {
                 if second.completed == true {
                     return true
@@ -66,5 +68,16 @@ extension Project {
         let completedItems = originalItems.filter(\.completed) // 3. Otherwise, create a second array by filtering the first for completed items.
         
         return Double(completedItems.count) / Double(originalItems.count) // Finally, divide the count of completed items by the count of the original items.
+    }
+    
+    func projectItems(using sortOrder: Item.SortOrder) -> [Item] {
+        switch sortOrder {
+        case .title:
+            return projectItems.sorted(by: \Item.itemTitle)
+        case .creationDate:
+            return projectItems.sorted(by: \Item.itemCreationDate)
+        case .optimzed:
+            return projectItemsDefaultSorted
+        }
     }
 }

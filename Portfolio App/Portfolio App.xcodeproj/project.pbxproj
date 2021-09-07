@@ -34,6 +34,8 @@
 		5E9FB1B526E6515400A39203 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5E9FB1B326E6515400A39203 /* Colors.xcassets */; };
 		5E9FB1B726E6552900A39203 /* EditProjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9FB1B626E6552900A39203 /* EditProjectView.swift */; };
 		5E9FB1B826E6552900A39203 /* EditProjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9FB1B626E6552900A39203 /* EditProjectView.swift */; };
+		5EA003BF26E791C90087B1F1 /* Sequence-Sorting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA003BE26E791C90087B1F1 /* Sequence-Sorting.swift */; };
+		5EA003C026E791C90087B1F1 /* Sequence-Sorting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA003BE26E791C90087B1F1 /* Sequence-Sorting.swift */; };
 		5EC582FD26E0F6920083FED5 /* Tests_iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC582FC26E0F6920083FED5 /* Tests_iOS.swift */; };
 		5EC582FF26E0F6920083FED5 /* Tests_iOSLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC582FE26E0F6920083FED5 /* Tests_iOSLaunchTests.swift */; };
 		5EC5830926E0F6920083FED5 /* Tests_macOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC5830826E0F6920083FED5 /* Tests_macOS.swift */; };
@@ -80,6 +82,7 @@
 		5E5CFB6B26E24D4100CDA537 /* Project+CoreDataHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Project+CoreDataHelpers.swift"; sourceTree = "<group>"; };
 		5E9FB1B326E6515400A39203 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		5E9FB1B626E6552900A39203 /* EditProjectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProjectView.swift; sourceTree = "<group>"; };
+		5EA003BE26E791C90087B1F1 /* Sequence-Sorting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sequence-Sorting.swift"; sourceTree = "<group>"; };
 		5EC582E426E0F6910083FED5 /* Shared.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Shared.xcdatamodel; sourceTree = "<group>"; };
 		5EC582E526E0F6910083FED5 /* Portfolio_App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Portfolio_App.swift; sourceTree = "<group>"; };
 		5EC582E826E0F6920083FED5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -158,6 +161,7 @@
 				5E32CF1C26E60E1400D21118 /* EditItemView.swift */,
 				5E32CF1F26E6187200D21118 /* ItemRowView.swift */,
 				5E5CFB6826E24C6F00CDA537 /* Item+CoreDataHelpers.swift */,
+				5EA003BE26E791C90087B1F1 /* Sequence-Sorting.swift */,
 				5E5CFB6B26E24D4100CDA537 /* Project+CoreDataHelpers.swift */,
 				5EC582E826E0F6920083FED5 /* Assets.xcassets */,
 				5E9FB1B326E6515400A39203 /* Colors.xcassets */,
@@ -370,6 +374,7 @@
 				5E5CFB5B26E21D6900CDA537 /* ContentView.swift in Sources */,
 				5E32CF2026E6187200D21118 /* ItemRowView.swift in Sources */,
 				5EC5830E26E0F6920083FED5 /* Portfolio_App.swift in Sources */,
+				5EA003BF26E791C90087B1F1 /* Sequence-Sorting.swift in Sources */,
 				5E5CFB6326E22D6000CDA537 /* HomeView.swift in Sources */,
 				5EC5830C26E0F6920083FED5 /* Portfolio_App.xcdatamodeld in Sources */,
 				5E5CFB6926E24C6F00CDA537 /* Item+CoreDataHelpers.swift in Sources */,
@@ -390,6 +395,7 @@
 				5E5CFB5C26E21D6900CDA537 /* ContentView.swift in Sources */,
 				5E32CF2126E6187200D21118 /* ItemRowView.swift in Sources */,
 				5EC5830F26E0F6920083FED5 /* Portfolio_App.swift in Sources */,
+				5EA003C026E791C90087B1F1 /* Sequence-Sorting.swift in Sources */,
 				5E5CFB6426E22D6000CDA537 /* HomeView.swift in Sources */,
 				5EC5830D26E0F6920083FED5 /* Portfolio_App.xcdatamodeld in Sources */,
 				5E5CFB6A26E24C6F00CDA537 /* Item+CoreDataHelpers.swift in Sources */,
