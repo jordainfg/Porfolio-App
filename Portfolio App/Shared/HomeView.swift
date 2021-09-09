@@ -33,18 +33,7 @@ struct HomeView: View {
         items = FetchRequest(fetchRequest: request)
         // more code to come
     }
-    var tossResult: some View {
-            
-                if Bool.random() {
-                    Image("laser-show")
-                        .resizable()
-                        .scaledToFit()
-                } else {
-                    Text("Better luck next time")
-                        .font(.title)
-                }
-            
-        }
+  
     var body: some View {
         NavigationView {
             ScrollView{
