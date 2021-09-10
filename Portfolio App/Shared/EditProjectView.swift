@@ -39,22 +39,27 @@ struct EditProjectView: View {
             }
             Section(header: Text("Custom project color")) {
                 LazyVGrid(columns: colorColumns) {
-                    ForEach(Project.colors, id: \.self) { item in
+                    ForEach(Project.colors, id: \.self) { color in
                         ZStack {
-                            Color(item)
+                            Color(color)
                                 .aspectRatio(1, contentMode: .fit)
                                 .cornerRadius(6)
 
-                            if item == color {
+                            if color == self.color {
                                 Image(systemName: "checkmark.circle")
                                     .foregroundColor(.white)
                                     .font(.largeTitle)
                             }
                         }
                         .onTapGesture {
-                            color = item
+                            self.color = color
                             update()
                         }
+                        .accessibilityElement(children: .ignore)
+                        .accessibilityAddTraits(
+                            color == self.color ? [.isButton, .isSelected] : .isButton
+                        )
+                        .accessibilityLabel(LocalizedStringKey(color))
                     }
                 }
                 .padding(.vertical)

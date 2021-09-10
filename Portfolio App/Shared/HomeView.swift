@@ -34,6 +34,7 @@ struct HomeView: View {
         // more code to come
     }
   
+    
     var body: some View {
         NavigationView {
             ScrollView{
@@ -55,6 +56,8 @@ struct HomeView: View {
                                     .background(Color.secondarySystemGroupedBackground)
                                     .cornerRadius(10)
                                     .shadow(color: Color.black.opacity(0.2), radius: 5)
+                                    .accessibilityElement(children: .ignore)
+                                    .accessibilityLabel(project.label)
                             }
                         }.padding([.horizontal, .top])
                             .fixedSize(horizontal: false, vertical: true)

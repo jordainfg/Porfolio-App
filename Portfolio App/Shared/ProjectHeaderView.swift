@@ -25,7 +25,8 @@ struct ProjectHeaderView: View {
             NavigationLink(destination: EditProjectView(project: project)) {
                 Image(systemName: "square.and.pencil")
             }
-        }
+        }.padding(.bottom,10)
+         .accessibilityElement(children: .combine)
     }
 }
 
