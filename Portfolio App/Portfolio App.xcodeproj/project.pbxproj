@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		5E03D2FB26E64B5B00E9BDF1 /* ProjectHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E03D2FA26E64B5B00E9BDF1 /* ProjectHeaderView.swift */; };
 		5E03D2FC26E64B5B00E9BDF1 /* ProjectHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E03D2FA26E64B5B00E9BDF1 /* ProjectHeaderView.swift */; };
+		5E3206B926EB8F2200A9E13E /* ItemListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E3206B826EB8F2200A9E13E /* ItemListView.swift */; };
+		5E3206BA26EB8F2200A9E13E /* ItemListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E3206B826EB8F2200A9E13E /* ItemListView.swift */; };
+		5E3206BC26EB904A00A9E13E /* ProjectSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E3206BB26EB904A00A9E13E /* ProjectSummaryView.swift */; };
+		5E3206BD26EB904A00A9E13E /* ProjectSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E3206BB26EB904A00A9E13E /* ProjectSummaryView.swift */; };
 		5E32CF1D26E60E1400D21118 /* EditItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E32CF1C26E60E1400D21118 /* EditItemView.swift */; };
 		5E32CF1E26E60E1400D21118 /* EditItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E32CF1C26E60E1400D21118 /* EditItemView.swift */; };
 		5E32CF2026E6187200D21118 /* ItemRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E32CF1F26E6187200D21118 /* ItemRowView.swift */; };
@@ -83,6 +87,8 @@
 
 /* Begin PBXFileReference section */
 		5E03D2FA26E64B5B00E9BDF1 /* ProjectHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectHeaderView.swift; sourceTree = "<group>"; };
+		5E3206B826EB8F2200A9E13E /* ItemListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemListView.swift; sourceTree = "<group>"; };
+		5E3206BB26EB904A00A9E13E /* ProjectSummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectSummaryView.swift; sourceTree = "<group>"; };
 		5E32CF1C26E60E1400D21118 /* EditItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditItemView.swift; sourceTree = "<group>"; };
 		5E32CF1F26E6187200D21118 /* ItemRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemRowView.swift; sourceTree = "<group>"; };
 		5E32CF2226E6224700D21118 /* Binding-Onchange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Binding-Onchange.swift"; sourceTree = "<group>"; };
@@ -186,8 +192,10 @@
 				5EC582E526E0F6910083FED5 /* Portfolio_App.swift */,
 				5E5CFB5A26E21D6900CDA537 /* ContentView.swift */,
 				5E5CFB6226E22D6000CDA537 /* HomeView.swift */,
+				5E3206B826EB8F2200A9E13E /* ItemListView.swift */,
 				5E5CFB6526E22D7700CDA537 /* ProjectsView.swift */,
 				5E03D2FA26E64B5B00E9BDF1 /* ProjectHeaderView.swift */,
+				5E3206BB26EB904A00A9E13E /* ProjectSummaryView.swift */,
 				5E9FB1B626E6552900A39203 /* EditProjectView.swift */,
 				5EE7A78326E8AFAB00501D61 /* Bundle-Decodable.swift */,
 				5EE7A78626E8BD3300501D61 /* Award.swift */,
@@ -411,6 +419,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5EE7A78D26E8E6F900501D61 /* Color+ext.swift in Sources */,
+				5E3206BC26EB904A00A9E13E /* ProjectSummaryView.swift in Sources */,
 				5E5CFB6C26E24D4200CDA537 /* Project+CoreDataHelpers.swift in Sources */,
 				5E03D2FB26E64B5B00E9BDF1 /* ProjectHeaderView.swift in Sources */,
 				5EE7A78A26E8BD4700501D61 /* AwardsView.swift in Sources */,
@@ -425,6 +434,7 @@
 				5EC5830E26E0F6920083FED5 /* Portfolio_App.swift in Sources */,
 				5EA003BF26E791C90087B1F1 /* Sequence-Sorting.swift in Sources */,
 				5E5CFB6326E22D6000CDA537 /* HomeView.swift in Sources */,
+				5E3206B926EB8F2200A9E13E /* ItemListView.swift in Sources */,
 				5EE7A78426E8AFAB00501D61 /* Bundle-Decodable.swift in Sources */,
 				5EC5830C26E0F6920083FED5 /* Portfolio_App.xcdatamodeld in Sources */,
 				5E5CFB6926E24C6F00CDA537 /* Item+CoreDataHelpers.swift in Sources */,
@@ -437,6 +447,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5EE7A78E26E8E6F900501D61 /* Color+ext.swift in Sources */,
+				5E3206BD26EB904A00A9E13E /* ProjectSummaryView.swift in Sources */,
 				5E5CFB6D26E24D4200CDA537 /* Project+CoreDataHelpers.swift in Sources */,
 				5E03D2FC26E64B5B00E9BDF1 /* ProjectHeaderView.swift in Sources */,
 				5EE7A78B26E8BD4700501D61 /* AwardsView.swift in Sources */,
@@ -451,6 +462,7 @@
 				5EC5830F26E0F6920083FED5 /* Portfolio_App.swift in Sources */,
 				5EA003C026E791C90087B1F1 /* Sequence-Sorting.swift in Sources */,
 				5E5CFB6426E22D6000CDA537 /* HomeView.swift in Sources */,
+				5E3206BA26EB8F2200A9E13E /* ItemListView.swift in Sources */,
 				5EE7A78526E8AFAB00501D61 /* Bundle-Decodable.swift in Sources */,
 				5EC5830D26E0F6920083FED5 /* Portfolio_App.xcdatamodeld in Sources */,
 				5E5CFB6A26E24C6F00CDA537 /* Item+CoreDataHelpers.swift in Sources */,
