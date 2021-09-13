@@ -9,16 +9,15 @@ import SwiftUI
 
 @main
 struct Portfolio_App: App {
-    
+
     @StateObject var dataController: DataController
     @Environment(\.scenePhase) var scenePhase
-    
-        
+
     init() {
         let dataController = DataController()
         _dataController = StateObject(wrappedValue: dataController)
     }
-    
+
     var body: some Scene {
         WindowGroup {
             ContentView()

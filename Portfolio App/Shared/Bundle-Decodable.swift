@@ -1,10 +1,9 @@
 import Foundation
 
-
 extension Bundle {
-    
+
     func decode<T: Decodable>(_ type: T.Type, from file: String, dateDecodingStrategy: JSONDecoder.DateDecodingStrategy = .deferredToDate, keyDecodingStrategy: JSONDecoder.KeyDecodingStrategy = .useDefaultKeys) -> T {
-      
+
         // First, we’re going to find the actual location of the requested file inside the current bundle, and if that fails call `fatalError()` to crash the app.
         guard let url = self.url(forResource: file, withExtension: nil) else {
             fatalError("Failed to locate \(file) in bundle.")
@@ -17,9 +16,9 @@ extension Bundle {
         let decoder = JSONDecoder()
         decoder.dateDecodingStrategy = dateDecodingStrategy
         decoder.keyDecodingStrategy = keyDecodingStrategy
-        
+
         // Next, we need to decode the data into whatever type was requested. There are lots of errors that can be thrown when decoding data, so  we can catch them individually we then call `fatalError()` with meaningful data.
-        
+
         do {
             return try decoder.decode(T.self, from: data)
         } catch DecodingError.keyNotFound(let key, let context) {
@@ -33,8 +32,7 @@ extension Bundle {
         } catch {
             fatalError("Failed to decode \(file) from bundle: \(error.localizedDescription)")
         }
-        
-    }
-    
-}
 
+    }
+
+}

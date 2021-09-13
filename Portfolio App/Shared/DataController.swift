@@ -2,12 +2,9 @@ import CoreData
 import SwiftUI
 
 class DataController: ObservableObject {
-   
-    
+
     let container: NSPersistentCloudKitContainer
-    
-    
-    
+
     init(inMemory: Bool = false) {
         container = NSPersistentCloudKitContainer(name: "Portfolio_App")
 
@@ -15,13 +12,13 @@ class DataController: ObservableObject {
             container.persistentStoreDescriptions.first?.url = URL(fileURLWithPath: "/dev/null")
         }
 
-        container.loadPersistentStores { storeDescription, error in
+        container.loadPersistentStores { _, error in
             if let error = error {
                 fatalError("Fatal error loading store: \(error.localizedDescription)")
             }
         }
     }
-    
+
     static var preview: DataController = {
         let dataController = DataController(inMemory: true)
         let viewContext = dataController.container.viewContext
@@ -34,7 +31,7 @@ class DataController: ObservableObject {
 
         return dataController
     }()
-    
+
     func createSampleData() throws {
         let viewContext = container.viewContext
 
@@ -57,7 +54,7 @@ class DataController: ObservableObject {
 
         try viewContext.save() // write to PERMENANT storage
     }
-    
+
     func save() {
         if container.viewContext.hasChanges {
             try? container.viewContext.save()
@@ -67,7 +64,7 @@ class DataController: ObservableObject {
     func delete(_ object: NSManagedObject) {
         container.viewContext.delete(object)
     }
-    
+
     func deleteAll() {
         let fetchRequest1: NSFetchRequest<NSFetchRequestResult> = Item.fetchRequest()
         let batchDeleteRequest1 = NSBatchDeleteRequest(fetchRequest: fetchRequest1)
@@ -77,11 +74,11 @@ class DataController: ObservableObject {
         let batchDeleteRequest2 = NSBatchDeleteRequest(fetchRequest: fetchRequest2)
         _ = try? container.viewContext.execute(batchDeleteRequest2)
     }
-    
+
     func count<T>(for fetchRequest: NSFetchRequest<T>) -> Int {
         (try? container.viewContext.count(for: fetchRequest)) ?? 0
     }
-    
+
     func hasEarned(award: Award) -> Bool {
         switch award.criterion {
         case "items":

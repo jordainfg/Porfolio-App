@@ -1,8 +1,6 @@
 import Foundation
 
-
 //  `Comparable` : A type that can be compared using the relational operators <, <=, >=, and >.
-
 
 extension Sequence {
     /// A function that can sort an Array, this function is constrained by `Comparable`
@@ -14,9 +12,9 @@ extension Sequence {
             $0[keyPath: keyPath] < $1[keyPath: keyPath]
         }
     }
-    
+
     // So to give us more flexibility:
-    
+
     /// A function that can sort an Array, this function is __not__ constrained by `Comparable`
     /// This function can `throw` but it doesn't have to `throw`. Flexibility! This is possible because of `rethrows`.
     /// `rethrows`  means if `areInIncreasingOrder` is passed a throwing function then this `sorted(by:)` method also becomes a throwing function
@@ -25,7 +23,7 @@ extension Sequence {
             try areInIncreasingOrder($0[keyPath: keyPath], $1[keyPath: keyPath])
         }
     }
-    
+
     /*:
      With that in place we can clean up the first method we wrote from this:
      
@@ -37,16 +35,16 @@ extension Sequence {
         self.sorted(by keyPath, using : < )
      
      */
-    
+
     // Using 1 sortDescriptor
-    func sorted(by sortDescriptor: NSSortDescriptor) ->[Element]{
+    func sorted(by sortDescriptor: NSSortDescriptor) -> [Element] {
         self.sorted {
             sortDescriptor.compare($0, to: $1) == .orderedAscending
         }
     }
-    
+
     // Using multiple
-    
+
     func sorted(by sortDescriptors: [NSSortDescriptor]) -> [Element] {
         self.sorted {
             for descriptor in sortDescriptors {
@@ -63,8 +61,5 @@ extension Sequence {
             return false
         }
     }
-    
-    
-    
-    
+
 }

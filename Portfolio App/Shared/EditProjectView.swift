@@ -18,18 +18,18 @@ struct EditProjectView: View {
     @State private var detail: String
     @State private var color: String
     @State private var showingDeleteConfirm = false
-    
+
     let colorColumns = [
         GridItem(.adaptive(minimum: 44))
     ]
-    
+
     init(project: Project) {
         self.project = project
         _title = State(wrappedValue: project.projectTitle)
         _detail = State(wrappedValue: project.projectDetail)
         _color = State(wrappedValue: project.projectColor)
     }
-    
+
     var body: some View {
         Form {
             Section(header: Text("Basic settings")) {
@@ -60,24 +60,24 @@ struct EditProjectView: View {
         .navigationTitle("Edit Project")
         .onDisappear(perform: dataController.save)
     }
-    
+
     func update() {
         project.title = title
         project.detail = detail
         project.color = color
     }
-    
+
     func delete() {
         dataController.delete(project)
         presentationMode.wrappedValue.dismiss()
     }
-    
+
     func colorButton(for item: String) -> some View {
         ZStack {
             Color(color)
                 .aspectRatio(1, contentMode: .fit)
                 .cornerRadius(6)
-            
+
             if color == self.color {
                 Image(systemName: "checkmark.circle")
                     .foregroundColor(.white)
@@ -102,4 +102,3 @@ struct EditProjectView_Previews: PreviewProvider {
         EditProjectView(project: Project.example)
     }
 }
-

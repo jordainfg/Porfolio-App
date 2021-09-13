@@ -8,9 +8,9 @@
 import SwiftUI
 
 struct ContentView: View {
-    
-    @SceneStorage("selectedView") var selectedView : String?
-    
+
+    @SceneStorage("selectedView") var selectedView: String?
+
     var body: some View {
         TabView(selection: $selectedView) {
                 HomeView()
@@ -33,21 +33,21 @@ struct ContentView: View {
                         Image(systemName: "checkmark")
                         Text("Closed")
                     }
-            
+
                 AwardsView()
                     .tag(AwardsView.tag)
                     .tabItem {
                         Image(systemName: "rosette")
                         Text("Awards")
                     }
-            
+
             }
         }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var dataController = DataController.preview
-    
+
     static var previews: some View {
         if #available(iOS 15.0, *) {
             ContentView()

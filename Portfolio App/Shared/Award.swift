@@ -20,4 +20,3 @@ struct Award: Decodable, Identifiable {
 
     static let example = allAwards[0]
 }
-

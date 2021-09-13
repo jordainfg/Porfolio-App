@@ -8,40 +8,39 @@
 import SwiftUI
 import CoreData
 struct HomeView: View {
-    
-    static let tag : String? = "Home"
-    
+
+    static let tag: String? = "Home"
+
     @EnvironmentObject var dataController: DataController
-    
+
     @FetchRequest(entity: Project.entity(), sortDescriptors: [NSSortDescriptor(keyPath: \Project.title, ascending: true)], predicate: NSPredicate(format: "closed = false")) var projects: FetchedResults<Project>
-    
-    let items : FetchRequest<Item>
-    
+
+    let items: FetchRequest<Item>
+
     var projectRows: [GridItem] {
         [GridItem(.fixed(100))]
     }
-    
+
     init() {
         let request: NSFetchRequest<Item> = Item.fetchRequest()
         request.predicate = NSPredicate(format: "completed = false")
-        
+
         request.sortDescriptors = [
             NSSortDescriptor(keyPath: \Item.priority, ascending: false)
         ]
         request.fetchLimit = 10
-        
+
         items = FetchRequest(fetchRequest: request)
         // more code to come
     }
-    
-    
+
     var body: some View {
         NavigationView {
-            ScrollView{
+            ScrollView {
                 VStack(alignment: .leading) {
                     ScrollView(.horizontal, showsIndicators: false) {
                         LazyHGrid(rows: projectRows) {
-                            ForEach(projects, content : ProjectSummaryView.init)
+                            ForEach(projects, content: ProjectSummaryView.init)
                         }
                         .padding([.horizontal, .top])
                         .fixedSize(horizontal: false, vertical: true)
@@ -64,9 +63,7 @@ struct HomeView_Previews: PreviewProvider {
         HomeView()
     }
 }
-//Button("Add Data") {
+// Button("Add Data") {
 //    dataController.deleteAll()
 //    try? dataController.createSampleData()
-//}
-
-
+// }
