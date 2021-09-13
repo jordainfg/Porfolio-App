@@ -7,9 +7,8 @@
 
 import SwiftUI
 
-@main
-struct Portfolio_App: App {
-
+@main // swiftlint:disable: next line_length
+struct PortfolioApp: App {
     @StateObject var dataController: DataController
     @Environment(\.scenePhase) var scenePhase
 

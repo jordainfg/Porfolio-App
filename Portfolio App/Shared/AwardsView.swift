@@ -33,7 +33,9 @@ struct AwardsView: View {
                                     .scaledToFit()
                                     .padding()
                                     .frame(width: 100, height: 100)
-                                    .foregroundColor(dataController.hasEarned(award: award) ? Color(award.color) : Color.secondary.opacity(0.5 ))
+                                    .foregroundColor(
+                                        dataController.hasEarned(award: award) ?
+                                        Color(award.color) : Color.secondary.opacity(0.5 ))
                         }
                         .accessibilityLabel(
                             Text(dataController.hasEarned(award: award) ? "Unlocked: \(award.name)" : "Locked")
@@ -42,14 +44,24 @@ struct AwardsView: View {
                     }
                 }
             }
-            .alert(isPresented: $showingAwardDetails, content: {
-                if dataController.hasEarned(award: selectedAward) {
-                    return Alert(title: Text("Unlocked: \(selectedAward.name)"), message: Text(selectedAward.description), dismissButton: .default(Text("OK")))
-                } else {
-                    return Alert(title: Text("Locked"), message: Text(selectedAward.description), dismissButton: .default(Text("OK")))
-                }
-            })
+            .alert(isPresented: $showingAwardDetails, content: getAwardAlert)
             .navigationTitle("Awards")
+        }
+    }
+
+    func getAwardAlert() -> Alert {
+        if dataController.hasEarned(award: selectedAward) {
+            return Alert(
+                title: Text("Unlocked: \(selectedAward.name)"),
+                message: Text(selectedAward.description),
+                dismissButton: .default(Text("OK"))
+            )
+        } else {
+            return Alert(
+                title: Text("Locked"),
+                message: Text(selectedAward.description),
+                dismissButton: .default(Text("OK"))
+            )
         }
     }
 }

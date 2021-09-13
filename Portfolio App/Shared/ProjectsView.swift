@@ -47,9 +47,12 @@ struct ProjectsView: View {
             }
             .actionSheet(isPresented: $showingSortOrder) {
                 ActionSheet(title: Text("Sort items"), message: nil, buttons: [
-                    .default(Text("Optimized")) { sortDescriptor = nil },
-                    .default(Text("Creation Date")) { sortDescriptor = NSSortDescriptor(keyPath: \Item.creationDate, ascending: true) },
-                    .default(Text("Title")) { sortDescriptor = NSSortDescriptor(keyPath: \Item.title, ascending: true) }
+                    .default(Text("Optimized")) {
+                        sortDescriptor = nil },
+                    .default(Text("Creation Date")) {
+                        sortDescriptor = NSSortDescriptor(keyPath: \Item.creationDate, ascending: true) },
+                    .default(Text("Title")) {
+                        sortDescriptor = NSSortDescriptor(keyPath: \Item.title, ascending: true) }
                 ])
             }
             SelectSomethingView()

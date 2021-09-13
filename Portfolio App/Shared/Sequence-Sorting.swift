@@ -17,8 +17,12 @@ extension Sequence {
 
     /// A function that can sort an Array, this function is __not__ constrained by `Comparable`
     /// This function can `throw` but it doesn't have to `throw`. Flexibility! This is possible because of `rethrows`.
-    /// `rethrows`  means if `areInIncreasingOrder` is passed a throwing function then this `sorted(by:)` method also becomes a throwing function
-    func sorted<Value>(by keyPath: KeyPath<Element, Value>, using areInIncreasingOrder: (Value, Value) throws -> Bool) rethrows -> [Element] {
+    /// `rethrows`  means if `areInIncreasingOrder` is passed a throwing function then this `sorted(by:)`
+    /// method also becomes a throwing function
+    func sorted<Value>(
+                    by keyPath: KeyPath<Element, Value>,
+                    using areInIncreasingOrder: (Value, Value) throws -> Bool
+    ) rethrows -> [Element] {
         try self.sorted {
             try areInIncreasingOrder($0[keyPath: keyPath], $1[keyPath: keyPath])
         }

@@ -1,9 +1,10 @@
-//
 //  EditProjectView.swift
 //  EditProjectView
 //
 //  Created by Jordain on 06/09/2021.
 //
+
+// swiftlint:disable all
 
 import SwiftUI
 
@@ -42,6 +43,7 @@ struct EditProjectView: View {
                 }
                 .padding(.vertical)
             }
+            // swiftlint:disable:next line_length
             Section(footer: Text("Closing a project moves it from the Open to Closed tab; deleting it removes the project completely.")) {
                 Button(project.closed ? "Reopen this project" : "Close this project") {
                     project.closed.toggle()
@@ -52,7 +54,11 @@ struct EditProjectView: View {
                     showingDeleteConfirm.toggle()
                 }
                 .alert(isPresented: $showingDeleteConfirm) {
-                    Alert(title: Text("Delete project?"), message: Text("Are you sure you want to delete this project? You will also delete all the items it contains."), primaryButton: .default(Text("Delete"), action: delete), secondaryButton: .cancel())
+                    Alert(
+                        title: Text("Delete project?"),
+                        message: Text("Are you sure you want to delete this project? You will also delete all the items it contains."),
+                        primaryButton: .default(Text("Delete"), action: delete),
+                        secondaryButton: .cancel())
                 }
                 .accentColor(.red)
             }
@@ -96,7 +102,8 @@ struct EditProjectView: View {
     }
 }
 
-// By adding a custom initializer we need to adjust the preview provider for our view. Again, this isn’t hard because we already defined a static example project we can use:
+// By adding a custom initializer we need to adjust the preview provider for our view.
+// Again, this isn’t hard because we already defined a static example project we can use:
 struct EditProjectView_Previews: PreviewProvider {
     static var previews: some View {
         EditProjectView(project: Project.example)
