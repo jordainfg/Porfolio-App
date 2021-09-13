@@ -11,7 +11,7 @@ struct ProjectSummaryView: View {
     @ObservedObject var project : Project
     var body: some View {
         VStack(alignment: .leading) {
-            Text("\(project.projectItems.count) items", tableName: <#T##String?#>)
+            Text("\(project.projectItems.count) items")
                 .font(.caption)
                 .foregroundColor(.secondary)
             

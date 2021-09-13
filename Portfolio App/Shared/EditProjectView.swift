@@ -25,7 +25,6 @@ struct EditProjectView: View {
     
     init(project: Project) {
         self.project = project
-
         _title = State(wrappedValue: project.projectTitle)
         _detail = State(wrappedValue: project.projectDetail)
         _color = State(wrappedValue: project.projectColor)
