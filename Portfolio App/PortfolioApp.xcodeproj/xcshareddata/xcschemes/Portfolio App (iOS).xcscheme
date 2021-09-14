@@ -17,7 +17,7 @@
                BlueprintIdentifier = "5EC582EC26E0F6920083FED5"
                BuildableName = "Portfolio App.app"
                BlueprintName = "Portfolio App (iOS)"
-               ReferencedContainer = "container:Portfolio App.xcodeproj">
+               ReferencedContainer = "container:PortfolioApp.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -35,7 +35,7 @@
                BlueprintIdentifier = "5EC582F726E0F6920083FED5"
                BuildableName = "Tests iOS.xctest"
                BlueprintName = "Tests iOS"
-               ReferencedContainer = "container:Portfolio App.xcodeproj">
+               ReferencedContainer = "container:PortfolioApp.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -59,7 +59,7 @@
             BlueprintIdentifier = "5EC582EC26E0F6920083FED5"
             BuildableName = "Portfolio App.app"
             BlueprintName = "Portfolio App (iOS)"
-            ReferencedContainer = "container:Portfolio App.xcodeproj">
+            ReferencedContainer = "container:PortfolioApp.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -76,7 +76,7 @@
             BlueprintIdentifier = "5EC582EC26E0F6920083FED5"
             BuildableName = "Portfolio App.app"
             BlueprintName = "Portfolio App (iOS)"
-            ReferencedContainer = "container:Portfolio App.xcodeproj">
+            ReferencedContainer = "container:PortfolioApp.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
