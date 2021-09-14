@@ -62,7 +62,18 @@
 		5E55785B26F0A2C400FD67F9 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5E55785D26F0A2C400FD67F9 /* Localizable.strings */; };
 		5EE3B0B226F0A43400401C2E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE3B0B126F0A43400401C2E /* ContentView.swift */; };
 		5EE3B0B326F0A43400401C2E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE3B0B126F0A43400401C2E /* ContentView.swift */; };
+		5EE3B0D426F0D3E900401C2E /* MultiPlatformPortfolioTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE3B0D326F0D3E900401C2E /* MultiPlatformPortfolioTests.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		5EE3B0D526F0D3E900401C2E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5E5577E126F0A1C300FD67F9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5E5577EC26F0A1C400FD67F9;
+			remoteInfo = "MultiPlatformPortfolio (iOS)";
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		5E5577E626F0A1C300FD67F9 /* MultiPlatformPortfolioApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiPlatformPortfolioApp.swift; sourceTree = "<group>"; };
@@ -101,6 +112,8 @@
 		5E55786026F0A2C900FD67F9 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; name = nl; path = nl.lproj/Localizable.stringsdict; sourceTree = "<group>"; };
 		5E55786126F0A2C900FD67F9 /* hu */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; name = hu; path = hu.lproj/Localizable.stringsdict; sourceTree = "<group>"; };
 		5EE3B0B126F0A43400401C2E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		5EE3B0D126F0D3E900401C2E /* MultiPlatformPortfolioTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MultiPlatformPortfolioTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5EE3B0D326F0D3E900401C2E /* MultiPlatformPortfolioTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiPlatformPortfolioTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +132,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		5EE3B0CE26F0D3E900401C2E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -126,6 +146,7 @@
 			isa = PBXGroup;
 			children = (
 				5E5577E526F0A1C300FD67F9 /* Shared */,
+				5EE3B0D226F0D3E900401C2E /* MultiPlatformPortfolioTests */,
 				5E5577EE26F0A1C400FD67F9 /* Products */,
 				5E55785326F0A26E00FD67F9 /* Frameworks */,
 			);
@@ -154,6 +175,7 @@
 			children = (
 				5E5577ED26F0A1C400FD67F9 /* MultiPlatformPortfolio.app */,
 				5E5577F326F0A1C400FD67F9 /* MultiPlatformPortfolio.app */,
+				5EE3B0D126F0D3E900401C2E /* MultiPlatformPortfolioTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -248,6 +270,14 @@
 			path = Awards;
 			sourceTree = "<group>";
 		};
+		5EE3B0D226F0D3E900401C2E /* MultiPlatformPortfolioTests */ = {
+			isa = PBXGroup;
+			children = (
+				5EE3B0D326F0D3E900401C2E /* MultiPlatformPortfolioTests.swift */,
+			);
+			path = MultiPlatformPortfolioTests;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -285,6 +315,24 @@
 			productReference = 5E5577F326F0A1C400FD67F9 /* MultiPlatformPortfolio.app */;
 			productType = "com.apple.product-type.application";
 		};
+		5EE3B0D026F0D3E900401C2E /* MultiPlatformPortfolioTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5EE3B0D926F0D3E900401C2E /* Build configuration list for PBXNativeTarget "MultiPlatformPortfolioTests" */;
+			buildPhases = (
+				5EE3B0CD26F0D3E900401C2E /* Sources */,
+				5EE3B0CE26F0D3E900401C2E /* Frameworks */,
+				5EE3B0CF26F0D3E900401C2E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5EE3B0D626F0D3E900401C2E /* PBXTargetDependency */,
+			);
+			name = MultiPlatformPortfolioTests;
+			productName = MultiPlatformPortfolioTests;
+			productReference = 5EE3B0D126F0D3E900401C2E /* MultiPlatformPortfolioTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -300,6 +348,10 @@
 					};
 					5E5577F226F0A1C400FD67F9 = {
 						CreatedOnToolsVersion = 13.0;
+					};
+					5EE3B0D026F0D3E900401C2E = {
+						CreatedOnToolsVersion = 13.0;
+						TestTargetID = 5E5577EC26F0A1C400FD67F9;
 					};
 				};
 			};
@@ -320,6 +372,7 @@
 			targets = (
 				5E5577EC26F0A1C400FD67F9 /* MultiPlatformPortfolio (iOS) */,
 				5E5577F226F0A1C400FD67F9 /* MultiPlatformPortfolio (macOS) */,
+				5EE3B0D026F0D3E900401C2E /* MultiPlatformPortfolioTests */,
 			);
 		};
 /* End PBXProject section */
@@ -348,6 +401,13 @@
 				5E5577F926F0A1C400FD67F9 /* Assets.xcassets in Resources */,
 				5E55783E26F0A1DE00FD67F9 /* README.md in Resources */,
 				5E55785726F0A2BC00FD67F9 /* Localizable.stringsdict in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5EE3B0CF26F0D3E900401C2E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -410,7 +470,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		5EE3B0CD26F0D3E900401C2E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5EE3B0D426F0D3E900401C2E /* MultiPlatformPortfolioTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		5EE3B0D626F0D3E900401C2E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5E5577EC26F0A1C400FD67F9 /* MultiPlatformPortfolio (iOS) */;
+			targetProxy = 5EE3B0D526F0D3E900401C2E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		5E55785926F0A2BC00FD67F9 /* Localizable.stringsdict */ = {
@@ -670,6 +746,57 @@
 			};
 			name = Release;
 		};
+		5EE3B0D726F0D3E900401C2E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = PTWF5822NK;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.featurex.MultiPlatformPortfolioTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MultiPlatformPortfolio.app/MultiPlatformPortfolio";
+			};
+			name = Debug;
+		};
+		5EE3B0D826F0D3E900401C2E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = PTWF5822NK;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.featurex.MultiPlatformPortfolioTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MultiPlatformPortfolio.app/MultiPlatformPortfolio";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -696,6 +823,15 @@
 			buildConfigurations = (
 				5E55780026F0A1C400FD67F9 /* Debug */,
 				5E55780126F0A1C400FD67F9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5EE3B0D926F0D3E900401C2E /* Build configuration list for PBXNativeTarget "MultiPlatformPortfolioTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5EE3B0D726F0D3E900401C2E /* Debug */,
+				5EE3B0D826F0D3E900401C2E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
