@@ -15,7 +15,7 @@ class DataController: ObservableObject {
     /// Defaults to permanent storage.
     /// - Parameter inMemory: Whether to store this data in temporary memory or not.
     init(inMemory: Bool = false) {
-        container = NSPersistentCloudKitContainer(name: "Portfolio_App")
+        container = NSPersistentCloudKitContainer(name: "MultiPlatformPortfolioApp")
 
         // For testing and previewing purposes, we create a
         // temporary, in-memory database by writing to /dev/null
