@@ -29,8 +29,6 @@
 		5E55782C26F0A1DE00FD67F9 /* Binding-Onchange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E55780926F0A1DE00FD67F9 /* Binding-Onchange.swift */; };
 		5E55782D26F0A1DE00FD67F9 /* EditItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E55780A26F0A1DE00FD67F9 /* EditItemView.swift */; };
 		5E55782E26F0A1DE00FD67F9 /* EditItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E55780A26F0A1DE00FD67F9 /* EditItemView.swift */; };
-		5E55782F26F0A1DE00FD67F9 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E55780B26F0A1DE00FD67F9 /* ContentView.swift */; };
-		5E55783026F0A1DE00FD67F9 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E55780B26F0A1DE00FD67F9 /* ContentView.swift */; };
 		5E55783326F0A1DE00FD67F9 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5E55780D26F0A1DE00FD67F9 /* Colors.xcassets */; };
 		5E55783426F0A1DE00FD67F9 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5E55780D26F0A1DE00FD67F9 /* Colors.xcassets */; };
 		5E55783526F0A1DE00FD67F9 /* EditProjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E55780E26F0A1DE00FD67F9 /* EditProjectView.swift */; };
@@ -62,6 +60,8 @@
 		5E55785726F0A2BC00FD67F9 /* Localizable.stringsdict in Resources */ = {isa = PBXBuildFile; fileRef = 5E55785926F0A2BC00FD67F9 /* Localizable.stringsdict */; };
 		5E55785A26F0A2C400FD67F9 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5E55785D26F0A2C400FD67F9 /* Localizable.strings */; };
 		5E55785B26F0A2C400FD67F9 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5E55785D26F0A2C400FD67F9 /* Localizable.strings */; };
+		5EE3B0B226F0A43400401C2E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE3B0B126F0A43400401C2E /* ContentView.swift */; };
+		5EE3B0B326F0A43400401C2E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE3B0B126F0A43400401C2E /* ContentView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -78,7 +78,6 @@
 		5E55780826F0A1DE00FD67F9 /* Sequence-Sorting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Sequence-Sorting.swift"; sourceTree = "<group>"; };
 		5E55780926F0A1DE00FD67F9 /* Binding-Onchange.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Binding-Onchange.swift"; sourceTree = "<group>"; };
 		5E55780A26F0A1DE00FD67F9 /* EditItemView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditItemView.swift; sourceTree = "<group>"; };
-		5E55780B26F0A1DE00FD67F9 /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ContentView.swift; path = "../../Porfolio-App/Portfolio App/Shared/ContentView.swift"; sourceTree = "<group>"; };
 		5E55780D26F0A1DE00FD67F9 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		5E55780E26F0A1DE00FD67F9 /* EditProjectView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditProjectView.swift; sourceTree = "<group>"; };
 		5E55781026F0A1DE00FD67F9 /* Item+CoreDataHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Item+CoreDataHelpers.swift"; sourceTree = "<group>"; };
@@ -92,7 +91,7 @@
 		5E55781A26F0A1DE00FD67F9 /* AwardsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AwardsView.swift; sourceTree = "<group>"; };
 		5E55781B26F0A1DE00FD67F9 /* Awards.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Awards.json; sourceTree = "<group>"; };
 		5E55781C26F0A1DE00FD67F9 /* ProjectsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectsView.swift; sourceTree = "<group>"; };
-		5E55785126F0A25C00FD67F9 /* MultiPlatformPortfolio--iOS--Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "MultiPlatformPortfolio--iOS--Info.plist"; sourceTree = "<group>"; };
+		5E55785126F0A25C00FD67F9 /* MultiPlatformPortfolio--iOS--Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MultiPlatformPortfolio--iOS--Info.plist"; sourceTree = "<group>"; };
 		5E55785226F0A26100FD67F9 /* MultiPlatformPortfolio (iOS).entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "MultiPlatformPortfolio (iOS).entitlements"; sourceTree = "<group>"; };
 		5E55785426F0A26E00FD67F9 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS15.0.sdk/System/Library/Frameworks/CloudKit.framework; sourceTree = DEVELOPER_DIR; };
 		5E55785826F0A2BC00FD67F9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; name = en; path = en.lproj/Localizable.stringsdict; sourceTree = "<group>"; };
@@ -101,6 +100,7 @@
 		5E55785F26F0A2C600FD67F9 /* hu */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = hu; path = hu.lproj/Localizable.strings; sourceTree = "<group>"; };
 		5E55786026F0A2C900FD67F9 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; name = nl; path = nl.lproj/Localizable.stringsdict; sourceTree = "<group>"; };
 		5E55786126F0A2C900FD67F9 /* hu */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; name = hu; path = hu.lproj/Localizable.stringsdict; sourceTree = "<group>"; };
+		5EE3B0B126F0A43400401C2E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,8 +125,6 @@
 		5E5577E026F0A1C300FD67F9 = {
 			isa = PBXGroup;
 			children = (
-				5E55785226F0A26100FD67F9 /* MultiPlatformPortfolio (iOS).entitlements */,
-				5E55785126F0A25C00FD67F9 /* MultiPlatformPortfolio--iOS--Info.plist */,
 				5E5577E526F0A1C300FD67F9 /* Shared */,
 				5E5577EE26F0A1C400FD67F9 /* Products */,
 				5E55785326F0A26E00FD67F9 /* Frameworks */,
@@ -136,32 +134,15 @@
 		5E5577E526F0A1C300FD67F9 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
-				5E5577E626F0A1C300FD67F9 /* MultiPlatformPortfolioApp.swift */,
-				5E55780526F0A1DD00FD67F9 /* Award.swift */,
-				5E55781B26F0A1DE00FD67F9 /* Awards.json */,
-				5E55781A26F0A1DE00FD67F9 /* AwardsView.swift */,
-				5E55780926F0A1DE00FD67F9 /* Binding-Onchange.swift */,
-				5E55780626F0A1DE00FD67F9 /* Bundle-Decodable.swift */,
-				5E55780426F0A1DD00FD67F9 /* Color+ext.swift */,
-				5E55780D26F0A1DE00FD67F9 /* Colors.xcassets */,
-				5E55780B26F0A1DE00FD67F9 /* ContentView.swift */,
-				5E55781826F0A1DE00FD67F9 /* DataController.swift */,
-				5E55780A26F0A1DE00FD67F9 /* EditItemView.swift */,
-				5E55780E26F0A1DE00FD67F9 /* EditProjectView.swift */,
-				5E55780726F0A1DE00FD67F9 /* HomeView.swift */,
-				5E55781026F0A1DE00FD67F9 /* Item+CoreDataHelpers.swift */,
-				5E55780326F0A1DD00FD67F9 /* ItemListView.swift */,
-				5E55780226F0A1DD00FD67F9 /* ItemRowView.swift */,
-				5E55785D26F0A2C400FD67F9 /* Localizable.strings */,
-				5E55785926F0A2BC00FD67F9 /* Localizable.stringsdict */,
-				5E55781326F0A1DE00FD67F9 /* MultiPlatformPortfolioApp.xcdatamodeld */,
-				5E55781526F0A1DE00FD67F9 /* Project+CoreDataHelpers.swift */,
-				5E55781126F0A1DE00FD67F9 /* ProjectHeaderView.swift */,
-				5E55781926F0A1DE00FD67F9 /* ProjectSummaryView.swift */,
-				5E55781C26F0A1DE00FD67F9 /* ProjectsView.swift */,
 				5E55781226F0A1DE00FD67F9 /* README.md */,
-				5E55781726F0A1DE00FD67F9 /* SelectSomethingView.swift */,
-				5E55780826F0A1DE00FD67F9 /* Sequence-Sorting.swift */,
+				5E5577E626F0A1C300FD67F9 /* MultiPlatformPortfolioApp.swift */,
+				5EE3B0B626F0A4B500401C2E /* Configuration */,
+				5EE3B0B926F0A50F00401C2E /* Models */,
+				5EE3B0B726F0A4D700401C2E /* Localization */,
+				5EE3B0B426F0A44A00401C2E /* Views */,
+				5EE3B0B526F0A48800401C2E /* Extensions */,
+				5EE3B0B826F0A4FC00401C2E /* Controllers */,
+				5E55780D26F0A1DE00FD67F9 /* Colors.xcassets */,
 				5E5577E826F0A1C400FD67F9 /* Assets.xcassets */,
 			);
 			path = Shared;
@@ -182,6 +163,73 @@
 				5E55785426F0A26E00FD67F9 /* CloudKit.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		5EE3B0B426F0A44A00401C2E /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				5E55781726F0A1DE00FD67F9 /* SelectSomethingView.swift */,
+				5EE3B0B126F0A43400401C2E /* ContentView.swift */,
+				5E55781A26F0A1DE00FD67F9 /* AwardsView.swift */,
+				5E55780A26F0A1DE00FD67F9 /* EditItemView.swift */,
+				5E55780E26F0A1DE00FD67F9 /* EditProjectView.swift */,
+				5E55780726F0A1DE00FD67F9 /* HomeView.swift */,
+				5E55780326F0A1DD00FD67F9 /* ItemListView.swift */,
+				5E55780226F0A1DD00FD67F9 /* ItemRowView.swift */,
+				5E55781126F0A1DE00FD67F9 /* ProjectHeaderView.swift */,
+				5E55781926F0A1DE00FD67F9 /* ProjectSummaryView.swift */,
+				5E55781C26F0A1DE00FD67F9 /* ProjectsView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		5EE3B0B526F0A48800401C2E /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				5E55780926F0A1DE00FD67F9 /* Binding-Onchange.swift */,
+				5E55780626F0A1DE00FD67F9 /* Bundle-Decodable.swift */,
+				5E55780426F0A1DD00FD67F9 /* Color+ext.swift */,
+				5E55780826F0A1DE00FD67F9 /* Sequence-Sorting.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		5EE3B0B626F0A4B500401C2E /* Configuration */ = {
+			isa = PBXGroup;
+			children = (
+				5E55785226F0A26100FD67F9 /* MultiPlatformPortfolio (iOS).entitlements */,
+				5E55785126F0A25C00FD67F9 /* MultiPlatformPortfolio--iOS--Info.plist */,
+				5E55781326F0A1DE00FD67F9 /* MultiPlatformPortfolioApp.xcdatamodeld */,
+			);
+			path = Configuration;
+			sourceTree = "<group>";
+		};
+		5EE3B0B726F0A4D700401C2E /* Localization */ = {
+			isa = PBXGroup;
+			children = (
+				5E55781B26F0A1DE00FD67F9 /* Awards.json */,
+				5E55785D26F0A2C400FD67F9 /* Localizable.strings */,
+				5E55785926F0A2BC00FD67F9 /* Localizable.stringsdict */,
+			);
+			path = Localization;
+			sourceTree = "<group>";
+		};
+		5EE3B0B826F0A4FC00401C2E /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				5E55781826F0A1DE00FD67F9 /* DataController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		5EE3B0B926F0A50F00401C2E /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				5E55780526F0A1DD00FD67F9 /* Award.swift */,
+				5E55781026F0A1DE00FD67F9 /* Item+CoreDataHelpers.swift */,
+				5E55781526F0A1DE00FD67F9 /* Project+CoreDataHelpers.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -296,8 +344,8 @@
 			files = (
 				5E55783F26F0A1DE00FD67F9 /* MultiPlatformPortfolioApp.xcdatamodeld in Sources */,
 				5E55782326F0A1DE00FD67F9 /* Award.swift in Sources */,
+				5EE3B0B226F0A43400401C2E /* ContentView.swift in Sources */,
 				5E55784526F0A1DE00FD67F9 /* SelectSomethingView.swift in Sources */,
-				5E55782F26F0A1DE00FD67F9 /* ContentView.swift in Sources */,
 				5E5577F426F0A1C400FD67F9 /* MultiPlatformPortfolioApp.swift in Sources */,
 				5E55783526F0A1DE00FD67F9 /* EditProjectView.swift in Sources */,
 				5E55782926F0A1DE00FD67F9 /* Sequence-Sorting.swift in Sources */,
@@ -324,8 +372,8 @@
 			files = (
 				5E55784026F0A1DE00FD67F9 /* MultiPlatformPortfolioApp.xcdatamodeld in Sources */,
 				5E55782426F0A1DE00FD67F9 /* Award.swift in Sources */,
+				5EE3B0B326F0A43400401C2E /* ContentView.swift in Sources */,
 				5E55784626F0A1DE00FD67F9 /* SelectSomethingView.swift in Sources */,
-				5E55783026F0A1DE00FD67F9 /* ContentView.swift in Sources */,
 				5E5577F526F0A1C400FD67F9 /* MultiPlatformPortfolioApp.swift in Sources */,
 				5E55783626F0A1DE00FD67F9 /* EditProjectView.swift in Sources */,
 				5E55782A26F0A1DE00FD67F9 /* Sequence-Sorting.swift in Sources */,
@@ -488,13 +536,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = "MultiPlatformPortfolio (iOS).entitlements";
+				CODE_SIGN_ENTITLEMENTS = "Shared/Configuration/MultiPlatformPortfolio (iOS).entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = PTWF5822NK;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "MultiPlatformPortfolio--iOS--Info.plist";
+				INFOPLIST_FILE = "Shared/Configuration/MultiPlatformPortfolio--iOS--Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -520,13 +568,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = "MultiPlatformPortfolio (iOS).entitlements";
+				CODE_SIGN_ENTITLEMENTS = "Shared/Configuration/MultiPlatformPortfolio (iOS).entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = PTWF5822NK;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "MultiPlatformPortfolio--iOS--Info.plist";
+				INFOPLIST_FILE = "Shared/Configuration/MultiPlatformPortfolio--iOS--Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
