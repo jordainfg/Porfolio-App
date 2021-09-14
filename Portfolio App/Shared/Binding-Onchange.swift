@@ -8,6 +8,9 @@
 import SwiftUI
 
 extension Binding {
+    /// <#Description#>
+    /// - Parameter handler: <#handler description#>
+    /// - Returns: <#description#>
     func onChange(_ handler: @escaping () -> Void) -> Binding<Value> {
         Binding(
             get: { self.wrappedValue },
