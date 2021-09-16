@@ -8,14 +8,14 @@ class DataController: ObservableObject {
     /// The lone CloudKit container used to store all our data.
     let container: NSPersistentCloudKitContainer
 
-    
-    /// Initialises a data controller, either in memory (for temporary use such as testing and previewing in SwiftUI Previews),
+    /// Initialises a data controller, either in memory (for temporary use such
+    /// as testing and previewing in SwiftUI Previews),
     /// or on permanent storage (for use in regular app runs.)
     ///
     /// Defaults to permanent storage.
     /// - Parameter inMemory: Whether to store this data in temporary memory or not.
     init(inMemory: Bool = false) {
-        container = NSPersistentCloudKitContainer(name: "MultiPlatformPortfolioApp")
+        container = NSPersistentCloudKitContainer(name: "MultiPlatformPortfolioApp", managedObjectModel: Self.model)
 
         // For testing and previewing purposes, we create a
         // temporary, in-memory database by writing to /dev/null
@@ -28,6 +28,12 @@ class DataController: ObservableObject {
             if let error = error {
                 fatalError("Fatal error loading store: \(error.localizedDescription)")
             }
+
+            #if DEBUG
+            if CommandLine.arguments.contains("enable-testing") {
+                self.deleteAll()
+            }
+            #endif
         }
     }
 
@@ -43,6 +49,23 @@ class DataController: ObservableObject {
 
         return dataController
     }()
+
+    /// That loads our data model exactly once, so now when we created our
+    /// NSPersistentCloudKitContainer we need to make it use that model rather
+    /// than have it attempt to load the model itself. This will stop two models being
+    /// loaded at the same time, which is what causes Core Data to get confused.
+    static let model: NSManagedObjectModel = {
+        guard let url = Bundle.main.url(forResource: "MultiPlatformPortfolioApp", withExtension: "momd") else {
+            fatalError("Failed to locate model file.")
+        }
+
+        guard let managedObjectModel = NSManagedObjectModel(contentsOf: url) else {
+            fatalError("Failed to load model file.")
+        }
+
+        return managedObjectModel
+    }()
+
     /// Creates example projects and items to make manual testing easier.
     /// - Throws: An NSError sent from calling save() on the NSManagedObjectContext.
     func createSampleData() throws {

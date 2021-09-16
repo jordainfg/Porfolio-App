@@ -5,7 +5,7 @@ import Foundation
 extension Sequence {
     /// A function that can sort an Array, this function is constrained by `Comparable`
     /// `Element` is generic so an Array of  Car, Boat, Cat etc can sort based on a specific property.
-    /// - Ussage: ` .sorted(by: \Item.itemCreationDate)` , `.sorted(by: \Item.itemTitle)`
+    /// - Example usage: ` .sorted(by: \Item.itemCreationDate)` , `.sorted(by: \Item.itemTitle)`
     ///  - Drawback: it will sort any array based on `<`, what if you want to use `<`, `<=`, `>=`, and `>`?.
     func sorted<Value: Comparable>(by keyPath: KeyPath<Element, Value>) -> [Element] {
         self.sorted {
@@ -19,6 +19,8 @@ extension Sequence {
     /// This function can `throw` but it doesn't have to `throw`. Flexibility! This is possible because of `rethrows`.
     /// `rethrows`  means if `areInIncreasingOrder` is passed a throwing function then this `sorted(by:)`
     /// method also becomes a throwing function
+    /// - Example usage: ` .sorted(by: \Item.itemCreationDate, using: >)
+    /// - Example usage: ` .sorted(by: \Item.itemCreationDate) { $0 > $1 }
     func sorted<Value>(
                     by keyPath: KeyPath<Element, Value>,
                     using areInIncreasingOrder: (Value, Value) throws -> Bool
@@ -29,14 +31,14 @@ extension Sequence {
     }
 
     /*:
-     With that in place we can clean up the first method we wrote from this:
+     With the method above we can clean up the first method we wrote from this:
      
         `self.sorted {
              $0[keyPath: keyPath] < $1[keyPath: keyPath]
          }`
      
      to this:
-        self.sorted(by keyPath, using : < )
+        self.sorted(by: keyPath, using: < )
      
      */
 

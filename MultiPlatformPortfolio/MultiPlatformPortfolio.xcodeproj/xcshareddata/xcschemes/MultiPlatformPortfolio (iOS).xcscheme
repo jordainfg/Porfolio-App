@@ -49,6 +49,16 @@
                ReferencedContainer = "container:MultiPlatformPortfolio.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "5EDBAAD126F384C0000ADAEE"
+               BuildableName = "MultiPlatformPortfolioUITests.xctest"
+               BlueprintName = "MultiPlatformPortfolioUITests"
+               ReferencedContainer = "container:MultiPlatformPortfolio.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction
