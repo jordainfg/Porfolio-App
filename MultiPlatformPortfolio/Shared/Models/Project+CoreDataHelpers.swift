@@ -97,7 +97,7 @@ extension Project {
             return projectItems.sorted(by: \Item.itemTitle)
         case .creationDate:
             return projectItems.sorted(by: \Item.itemCreationDate)
-        case .optimzed:
+        case .optimized:
             return projectItemsDefaultSorted
         }
     }

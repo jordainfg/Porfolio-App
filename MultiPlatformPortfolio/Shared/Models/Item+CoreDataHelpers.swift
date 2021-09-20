@@ -10,7 +10,7 @@ import SwiftUI
 extension Item {
 
     enum SortOrder {
-        case optimzed, title, creationDate
+        case optimized, title, creationDate
     }
 
     var itemTitle: String {

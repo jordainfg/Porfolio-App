@@ -34,8 +34,8 @@ struct EditProjectView: View {
     var body: some View {
         Form {
             Section(header: Text("Basic settings")) {
-                TextField("Project name", text: $title)
-                TextField("Description of this project", text: $detail)
+                TextField("Project name", text: $title.onChange(update))
+                TextField("Description of this project", text: $detail.onChange(update))
             }
             Section(header: Text("Custom project color")) {
                 LazyVGrid(columns: colorColumns) {

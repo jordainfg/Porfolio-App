@@ -1,0 +1,67 @@
+//
+//  ProjectsViewModel.swift
+//  MultiPlatformPortfolio
+//
+//  Created by Jordain on 20/09/2021.
+//
+import CoreData
+import Foundation
+import SwiftUI
+
+extension ProjectsView {
+    class ViewModel: ObservableObject {
+
+        let dataController: DataController
+
+        var sortOrder = Item.SortOrder.optimized
+        let showClosedProjects: Bool
+
+        private let projectsController: NSFetchedResultsController<Project>
+        @Published var projects = [Project]()
+
+        init(dataController: DataController, showClosedProjects: Bool) {
+            self.dataController = dataController
+            self.showClosedProjects = showClosedProjects
+            // projects = FetchRequest<Project>(entity: Project.entity(), sortDescriptors: [
+            //     NSSortDescriptor(keyPath: \Project.creationDate, ascending: false)
+            // ], predicate: NSPredicate(format: "closed = %d", showClosedProjects))
+
+            let request: NSFetchRequest<Project> = Project.fetchRequest()
+            request.sortDescriptors = [NSSortDescriptor(keyPath: \Project.creationDate, ascending: false)]
+            request.predicate = NSPredicate(format: "closed = %d", showClosedProjects)
+
+            projectsController = NSFetchedResultsController(
+                fetchRequest: request,
+                managedObjectContext: dataController.container.viewContext,
+                sectionNameKeyPath: nil,
+                cacheName: nil
+            )
+
+        }
+
+        func delete(_ offsets: IndexSet, from project: Project) {
+            let allItems = project.projectItems(using: sortOrder)
+
+            for offset in offsets {
+                let item = allItems[offset]
+                dataController.delete(item)
+            }
+
+            dataController.save()
+        }
+
+        func addItem(to project: Project) {
+                let item = Item(context: dataController.container.viewContext)
+                item.project = project
+                item.creationDate = Date()
+                dataController.save()
+        }
+
+        func addProject() {
+                let project = Project(context: dataController.container.viewContext)
+                project.closed = false
+                project.creationDate = Date()
+                dataController.save()
+        }
+    }
+}

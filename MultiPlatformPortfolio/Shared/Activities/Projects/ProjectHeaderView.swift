@@ -13,6 +13,7 @@ struct ProjectHeaderView: View {
 
     var body: some View {
         HStack {
+            NavigationLink(destination: EditProjectView(project: project)) {
             VStack(alignment: .leading) {
                 Text(project.projectTitle)
 
@@ -21,8 +22,6 @@ struct ProjectHeaderView: View {
             }
 
             Spacer()
-
-            NavigationLink(destination: EditProjectView(project: project)) {
                 Image(systemName: "square.and.pencil")
             }
         }.padding(.bottom, 10)

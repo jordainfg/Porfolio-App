@@ -12,47 +12,33 @@ struct ProjectsView: View {
     static let closedTag: String? = "Closed"
     static let openTag: String? = "Open"
 
-    @EnvironmentObject var dataController: DataController
-    @Environment(\.managedObjectContext) var managedObjectContext
-
     @State private var showingSortOrder = false
-    @State private var sortOrder = Item.SortOrder.optimzed
-    @State var sortDescriptor: NSSortDescriptor?
 
-    let showClosedProjects: Bool
-
-    let projects: FetchRequest<Project>
-
-    init(showClosedProjects: Bool) {
-        self.showClosedProjects = showClosedProjects
-        projects = FetchRequest<Project>(entity: Project.entity(), sortDescriptors: [
-            NSSortDescriptor(keyPath: \Project.creationDate, ascending: false)
-        ], predicate: NSPredicate(format: "closed = %d", showClosedProjects))
-    }
+    @StateObject var viewModel: ViewModel
 
     var body: some View {
         NavigationView {
             Group {
-                if projects.wrappedValue.count == 0 {
+                if viewModel.projects.wrappedValue.count == 0 {
                     Text("There's nothing here right now.")
                         .foregroundColor(.secondary)
                 } else {
                     projectsList
                 }
             }
-            .navigationTitle(showClosedProjects ? "Closed Projects" : "Open Projects")
+            .navigationTitle(viewModel.showClosedProjects ? "Closed Projects" : "Open Projects")
             .toolbar {
                 addProjectToolbarItem
                 sortOrderToolbarItem
             }
             .actionSheet(isPresented: $showingSortOrder) {
                 ActionSheet(title: Text("Sort items"), message: nil, buttons: [
-                    .default(Text("Optimized")) {
-                        sortDescriptor = nil },
+                    .default(Text("Optimised")) {
+                        viewModel.sortOrder = .optimized },
                     .default(Text("Creation Date")) {
-                        sortDescriptor = NSSortDescriptor(keyPath: \Item.creationDate, ascending: true) },
+                        viewModel.sortOrder = .creationDate },
                     .default(Text("Title")) {
-                        sortDescriptor = NSSortDescriptor(keyPath: \Item.title, ascending: true) }
+                        viewModel.sortOrder = .title }
                 ])
             }
             SelectSomethingView()
@@ -61,8 +47,8 @@ struct ProjectsView: View {
 
     var addProjectToolbarItem: some ToolbarContent {
         ToolbarItem(placement: .navigationBarTrailing) {
-            if showClosedProjects == false {
-                Button(action: addProject) {
+            if viewModel.showClosedProjects == false {
+                Button(action: viewModel.addProject) {
                     // In iOS 14.3 VoiceOver has a glitch that reads the label
                     // "Add Project" as "Add" no matter what accessibility label
                     // we give this button when using a label. As a result, when
@@ -71,7 +57,7 @@ struct ProjectsView: View {
                     if UIAccessibility.isVoiceOverRunning {
                         Text("Add Project")
                     } else {
-                        Label("Add Project", systemImage: "plus")
+                        Label("add", systemImage: "plus")
                     }
                 }
             }
@@ -90,19 +76,19 @@ struct ProjectsView: View {
 
     var projectsList : some View {
         List {
-            ForEach(projects.wrappedValue) { project in
+            ForEach(viewModel.projects.wrappedValue) { project in
                 Section(header: ProjectHeaderView(project: project)) {
                     // ForEach(project.projectItems, content: ItemRowView.init)
-                    ForEach(project.projectItems(using: sortOrder)) { item in
+                    ForEach(project.projectItems(using: viewModel.sortOrder)) { item in
                         ItemRowView(project: project, item: item)
                     }
                     .onDelete { offsets in
-                        delete(offsets, from: project)
+                        viewModel.delete(offsets, from: project)
                     }
 
-                    if showClosedProjects == false {
+                    if viewModel.showClosedProjects == false {
                         Button {
-                            addItem(to: project)
+                            viewModel.addItem(to: project)
                         } label: {
                             Label("Add New Item", systemImage: "plus")
                         }
@@ -112,43 +98,16 @@ struct ProjectsView: View {
         }
         .listStyle(InsetGroupedListStyle())
     }
-
-    func delete(_ offsets: IndexSet, from project: Project) {
-        let allItems = project.projectItems(using: sortOrder)
-
-        for offset in offsets {
-            let item = allItems[offset]
-            dataController.delete(item)
-        }
-
-        dataController.save()
+    init(dataController: DataController, showClosedProjects: Bool) {
+        let viewModel = ViewModel(dataController: dataController, showClosedProjects: showClosedProjects)
+        _viewModel = StateObject(wrappedValue: viewModel)
     }
 
-    func addItem(to project: Project) {
-        withAnimation {
-            let item = Item(context: managedObjectContext)
-            item.project = project
-            item.creationDate = Date()
-            dataController.save()
-        }
-    }
-
-    func addProject() {
-        withAnimation {
-            let project = Project(context: managedObjectContext)
-            project.closed = false
-            project.creationDate = Date()
-            dataController.save()
-        }
-    }
 }
 
 struct ProjectsView_Previews: PreviewProvider {
-    static var dataController = DataController.preview
-
     static var previews: some View {
-        ProjectsView(showClosedProjects: false)
-            .environment(\.managedObjectContext, dataController.container.viewContext)
-            .environmentObject(dataController)
+        ProjectsView(dataController: DataController.preview, showClosedProjects: false)
+
     }
 }
