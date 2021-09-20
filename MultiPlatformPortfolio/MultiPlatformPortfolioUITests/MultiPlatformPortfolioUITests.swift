@@ -22,4 +22,3 @@ class MultiPlatformPortfolioUITests: XCTestCase {
         XCTAssertEqual(app.tabBars.buttons.count, 4, "There should be 4 tabs in the app.")
     }
 }
-

@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct EditProjectView: View {
-    let project: Project
+    @ObservedObject var project: Project
 
     @Environment(\.presentationMode) var presentationMode
 
@@ -48,6 +48,9 @@ struct EditProjectView: View {
                 Button(project.closed ? "Reopen this project" : "Close this project") {
                     project.closed.toggle()
                     update()
+                    if project.closed {
+                        HapticEngine.shared.generator.notificationOccurred(.success)
+                    }
                 }
 
                 Button("Delete this project") {
