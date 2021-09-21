@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-
+import CoreSpotlight
 struct ContentView: View {
 
     @SceneStorage("selectedView") var selectedView: String?
@@ -41,8 +41,12 @@ struct ContentView: View {
                         Text("Awards")
                     }
 
-            }
+            }.onContinueUserActivity(CSSearchableItemActionType, perform: moveToHome)
         }
+
+    func moveToHome(_ input: Any) {
+        selectedView = HomeView.tag
+    }
 }
 
 struct ContentView_Previews: PreviewProvider {

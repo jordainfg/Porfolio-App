@@ -7,6 +7,7 @@
 
 import SwiftUI
 import CoreData
+import CoreSpotlight
 struct HomeView: View {
 
     static let tag: String? = "Home"
@@ -19,6 +20,8 @@ struct HomeView: View {
     var projects: FetchedResults<Project>
 
     let items: FetchRequest<Item>
+
+    @State var selectedItem: Item?
 
     var projectRows: [GridItem] {
         [GridItem(.fixed(100))]
@@ -41,6 +44,15 @@ struct HomeView: View {
     var body: some View {
         NavigationView {
             ScrollView {
+                if let item = selectedItem {
+                    NavigationLink(
+                        destination: EditItemView(item: item),
+                        tag: item,
+                        selection: $selectedItem,
+                        label: EmptyView.init
+                    )
+                    .id(item)
+                }
                 VStack(alignment: .leading) {
                     ScrollView(.horizontal, showsIndicators: false) {
                         LazyHGrid(rows: projectRows) {
@@ -58,7 +70,18 @@ struct HomeView: View {
             }
             .background(Color.systemGroupedBackground.ignoresSafeArea())
             .navigationTitle("Home")
+            .onContinueUserActivity(CSSearchableItemActionType, perform: loadSpotlightItem)
         }
+    }
+
+    func loadSpotlightItem(_ userActivity: NSUserActivity) {
+        if let uniqueIdentifier = userActivity.userInfo?[CSSearchableItemActivityIdentifier] as? String {
+           selectItem(with: uniqueIdentifier)
+        }
+    }
+
+    func selectItem(with identifier: String) {
+        selectedItem = dataController.item(with: identifier)
     }
 }
 
@@ -67,7 +90,3 @@ struct HomeView_Previews: PreviewProvider {
         HomeView()
     }
 }
-// Button("Add Data") {
-//    dataController.deleteAll()
-//    try? dataController.createSampleData()
-// }
