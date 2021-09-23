@@ -16,6 +16,7 @@ struct ProjectsView: View {
     @Environment(\.managedObjectContext) var managedObjectContext
 
     @State private var showingSortOrder = false
+    @State var showingUnlockView = false
     @State private var sortOrder = Item.SortOrder.optimzed
     @State var sortDescriptor: NSSortDescriptor?
 
@@ -56,6 +57,9 @@ struct ProjectsView: View {
                 ])
             }
             SelectSomethingView()
+        }
+        .sheet(isPresented: $showingUnlockView) {
+            UnlockView()
         }
     }
 
@@ -134,11 +138,17 @@ struct ProjectsView: View {
     }
 
     func addProject() {
+        let canCreate = dataController.fullVersionUnlocked || dataController.count(for: Project.fetchRequest()) < 3
+
         withAnimation {
-            let project = Project(context: managedObjectContext)
-            project.closed = false
-            project.creationDate = Date()
-            dataController.save()
+            if canCreate {
+                let project = Project(context: dataController.container.viewContext)
+                project.closed = false
+                project.creationDate = Date()
+                dataController.save()
+            } else {
+                showingUnlockView.toggle()
+            }
         }
     }
 }

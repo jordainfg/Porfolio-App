@@ -64,6 +64,12 @@
 		5E55785726F0A2BC00FD67F9 /* Localizable.stringsdict in Resources */ = {isa = PBXBuildFile; fileRef = 5E55785926F0A2BC00FD67F9 /* Localizable.stringsdict */; };
 		5E55785A26F0A2C400FD67F9 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5E55785D26F0A2C400FD67F9 /* Localizable.strings */; };
 		5E55785B26F0A2C400FD67F9 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5E55785D26F0A2C400FD67F9 /* Localizable.strings */; };
+		5E62133B26FB425300A14A54 /* UnlockManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E62133A26FB425300A14A54 /* UnlockManager.swift */; };
+		5E62133C26FB425300A14A54 /* UnlockManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E62133A26FB425300A14A54 /* UnlockManager.swift */; };
+		5E68175126FC760900AB3AEA /* SKProduct-LocalizedPrice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E68175026FC760900AB3AEA /* SKProduct-LocalizedPrice.swift */; };
+		5E68175326FC76F100AB3AEA /* ButtonStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E68175226FC76F100AB3AEA /* ButtonStyles.swift */; };
+		5E68175526FC780200AB3AEA /* ProductView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E68175426FC780200AB3AEA /* ProductView.swift */; };
+		5E68175726FC799900AB3AEA /* UnlockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E68175626FC799900AB3AEA /* UnlockView.swift */; };
 		5E9105B626F0E5C900EECCCC /* MultiPlatformPortfolioTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9105B526F0E5C900EECCCC /* MultiPlatformPortfolioTests.swift */; };
 		5E9105BD26F0E61E00EECCCC /* AssetTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9105BC26F0E61E00EECCCC /* AssetTest.swift */; };
 		5EDBAAC926F336A1000ADAEE /* DecodableDictionary.json in Resources */ = {isa = PBXBuildFile; fileRef = 5EDBAAC826F336A1000ADAEE /* DecodableDictionary.json */; };
@@ -134,6 +140,12 @@
 		5E55785F26F0A2C600FD67F9 /* hu */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = hu; path = hu.lproj/Localizable.strings; sourceTree = "<group>"; };
 		5E55786026F0A2C900FD67F9 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; name = nl; path = nl.lproj/Localizable.stringsdict; sourceTree = "<group>"; };
 		5E55786126F0A2C900FD67F9 /* hu */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; name = hu; path = hu.lproj/Localizable.stringsdict; sourceTree = "<group>"; };
+		5E62133A26FB425300A14A54 /* UnlockManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnlockManager.swift; sourceTree = "<group>"; };
+		5E62133D26FB480100A14A54 /* Configuration.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = Configuration.storekit; sourceTree = "<group>"; };
+		5E68175026FC760900AB3AEA /* SKProduct-LocalizedPrice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SKProduct-LocalizedPrice.swift"; sourceTree = "<group>"; };
+		5E68175226FC76F100AB3AEA /* ButtonStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonStyles.swift; sourceTree = "<group>"; };
+		5E68175426FC780200AB3AEA /* ProductView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductView.swift; sourceTree = "<group>"; };
+		5E68175626FC799900AB3AEA /* UnlockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnlockView.swift; sourceTree = "<group>"; };
 		5E9105B326F0E5C900EECCCC /* MultiPlatformPortfolioTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MultiPlatformPortfolioTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E9105B526F0E5C900EECCCC /* MultiPlatformPortfolioTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiPlatformPortfolioTests.swift; sourceTree = "<group>"; };
 		5E9105BC26F0E61E00EECCCC /* AssetTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetTest.swift; sourceTree = "<group>"; };
@@ -202,10 +214,10 @@
 				5E55781226F0A1DE00FD67F9 /* README.md */,
 				5EE3B0B926F0A50F00401C2E /* Models */,
 				5EE3B0B526F0A48800401C2E /* Extensions */,
-				5EE3B0B726F0A4D700401C2E /* Localization */,
 				5EE3B0B626F0A4B500401C2E /* Configuration */,
 				5E55780D26F0A1DE00FD67F9 /* Colors.xcassets */,
 				5E5577E826F0A1C400FD67F9 /* Assets.xcassets */,
+				5E68175226FC76F100AB3AEA /* ButtonStyles.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -227,6 +239,16 @@
 				5E55785426F0A26E00FD67F9 /* CloudKit.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		5E68175826FC81D100AB3AEA /* Unlock */ = {
+			isa = PBXGroup;
+			children = (
+				5E68175426FC780200AB3AEA /* ProductView.swift */,
+				5E68175626FC799900AB3AEA /* UnlockView.swift */,
+				5E62133A26FB425300A14A54 /* UnlockManager.swift */,
+			);
+			path = Unlock;
 			sourceTree = "<group>";
 		};
 		5E9105B426F0E5C900EECCCC /* MultiPlatformPortfolioTests */ = {
@@ -265,6 +287,8 @@
 		5EE3B0B526F0A48800401C2E /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				5E68175026FC760900AB3AEA /* SKProduct-LocalizedPrice.swift */,
+				5EE3B0B726F0A4D700401C2E /* Localization */,
 				5E55780926F0A1DE00FD67F9 /* Binding-Onchange.swift */,
 				5E55780626F0A1DE00FD67F9 /* Bundle-Decodable.swift */,
 				5E55780426F0A1DD00FD67F9 /* Color+ext.swift */,
@@ -276,6 +300,7 @@
 		5EE3B0B626F0A4B500401C2E /* Configuration */ = {
 			isa = PBXGroup;
 			children = (
+				5E62133D26FB480100A14A54 /* Configuration.storekit */,
 				5E55785226F0A26100FD67F9 /* MultiPlatformPortfolio (iOS).entitlements */,
 				5E55785126F0A25C00FD67F9 /* MultiPlatformPortfolio--iOS--Info.plist */,
 				5E55781326F0A1DE00FD67F9 /* MultiPlatformPortfolioApp.xcdatamodeld */,
@@ -307,6 +332,7 @@
 				5EE3B0BB26F0AD8500401C2E /* Home */,
 				5EE3B0BC26F0AD8E00401C2E /* Projects */,
 				5EE3B0BD26F0ADA300401C2E /* Awards */,
+				5E68175826FC81D100AB3AEA /* Unlock */,
 			);
 			path = Activities;
 			sourceTree = "<group>";
@@ -542,8 +568,10 @@
 				5EE3B0B226F0A43400401C2E /* ContentView.swift in Sources */,
 				5E55784526F0A1DE00FD67F9 /* SelectSomethingView.swift in Sources */,
 				5E5577F426F0A1C400FD67F9 /* MultiPlatformPortfolioApp.swift in Sources */,
+				5E62133B26FB425300A14A54 /* UnlockManager.swift in Sources */,
 				5E55783526F0A1DE00FD67F9 /* EditProjectView.swift in Sources */,
 				5E55782926F0A1DE00FD67F9 /* Sequence-Sorting.swift in Sources */,
+				5E68175726FC799900AB3AEA /* UnlockView.swift in Sources */,
 				5E55781D26F0A1DE00FD67F9 /* ItemRowView.swift in Sources */,
 				5E55783B26F0A1DE00FD67F9 /* ProjectHeaderView.swift in Sources */,
 				5E55784726F0A1DE00FD67F9 /* DataController.swift in Sources */,
@@ -551,8 +579,11 @@
 				5E55781F26F0A1DE00FD67F9 /* ItemListView.swift in Sources */,
 				5E55782D26F0A1DE00FD67F9 /* EditItemView.swift in Sources */,
 				5E55782726F0A1DE00FD67F9 /* HomeView.swift in Sources */,
+				5E68175126FC760900AB3AEA /* SKProduct-LocalizedPrice.swift in Sources */,
 				5E55782526F0A1DE00FD67F9 /* Bundle-Decodable.swift in Sources */,
 				5E55782B26F0A1DE00FD67F9 /* Binding-Onchange.swift in Sources */,
+				5E68175526FC780200AB3AEA /* ProductView.swift in Sources */,
+				5E68175326FC76F100AB3AEA /* ButtonStyles.swift in Sources */,
 				5E55784126F0A1DE00FD67F9 /* Project+CoreDataHelpers.swift in Sources */,
 				5E55782126F0A1DE00FD67F9 /* Color+ext.swift in Sources */,
 				5E55783926F0A1DE00FD67F9 /* Item+CoreDataHelpers.swift in Sources */,
@@ -571,6 +602,7 @@
 				5EE3B0B326F0A43400401C2E /* ContentView.swift in Sources */,
 				5E55784626F0A1DE00FD67F9 /* SelectSomethingView.swift in Sources */,
 				5E5577F526F0A1C400FD67F9 /* MultiPlatformPortfolioApp.swift in Sources */,
+				5E62133C26FB425300A14A54 /* UnlockManager.swift in Sources */,
 				5E55783626F0A1DE00FD67F9 /* EditProjectView.swift in Sources */,
 				5E55782A26F0A1DE00FD67F9 /* Sequence-Sorting.swift in Sources */,
 				5E55781E26F0A1DE00FD67F9 /* ItemRowView.swift in Sources */,

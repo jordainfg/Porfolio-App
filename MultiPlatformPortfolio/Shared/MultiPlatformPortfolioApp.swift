@@ -11,10 +11,13 @@ import SwiftUI
 struct MultiPlatformPortfolioApp: App {
     @StateObject var dataController: DataController
     @Environment(\.scenePhase) var scenePhase
-
+    @StateObject var unlockManager: UnlockManager
     init() {
         let dataController = DataController()
+        let unlockManager = UnlockManager(dataController: dataController)
+
         _dataController = StateObject(wrappedValue: dataController)
+        _unlockManager = StateObject(wrappedValue: unlockManager)
     }
 
     var body: some Scene {
@@ -22,6 +25,7 @@ struct MultiPlatformPortfolioApp: App {
             ContentView()
                 .environment(\.managedObjectContext, dataController.container.viewContext)
                     .environmentObject(dataController)
+                    .environmentObject(unlockManager)
                     .onReceive(
                         // Automatically save when we detect that we are
                         // no longer the foreground app. Use this rather than
@@ -29,7 +33,8 @@ struct MultiPlatformPortfolioApp: App {
                         // phase won't detect our app losing focus.
                         NotificationCenter.default.publisher(for: UIApplication.willResignActiveNotification),
                         perform: save
-            )
+                    )
+                    .onAppear(perform: dataController.appLaunched)
         }
         .onChange(of: scenePhase) { (newScenePhase) in
             switch newScenePhase {

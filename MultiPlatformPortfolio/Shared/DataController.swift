@@ -2,6 +2,7 @@ import CoreData
 import SwiftUI
 import CoreSpotlight
 import UserNotifications
+import StoreKit
 /// An environment singleton responsible for managing our Core Data stack, including handling saving,
 /// counting fetch requests, tracking awards, and dealing with sample data.
 class DataController: ObservableObject {
@@ -9,13 +10,29 @@ class DataController: ObservableObject {
     /// The lone CloudKit container used to store all our data.
     let container: NSPersistentCloudKitContainer
 
+    // MARK: - UnlockManager
+    // The UserDefaults suite where we're saving user data.
+    let defaults: UserDefaults
+
+    // Loads and saves whether our premium unlock has been purchased.
+    var fullVersionUnlocked: Bool {
+       get {
+         defaults.bool(forKey: "fullVersionUnlocked")
+       }
+       set {
+        defaults.set(newValue, forKey: "fullVersionUnlocked")
+       }
+    }
+
+    // MARK: - Init
     /// Initialises a data controller, either in memory (for temporary use such
     /// as testing and previewing in SwiftUI Previews),
     /// or on permanent storage (for use in regular app runs.)
     ///
     /// Defaults to permanent storage.
     /// - Parameter inMemory: Whether to store this data in temporary memory or not.
-    init(inMemory: Bool = false) {
+    /// - Parameter defaults: The UserDefaults suite where user data should be stored.
+    init(inMemory: Bool = false, defaults: UserDefaults = .standard) {
         container = NSPersistentCloudKitContainer(name: "MultiPlatformPortfolioApp", managedObjectModel: Self.model)
 
         // For testing and previewing purposes, we create a
@@ -24,6 +41,8 @@ class DataController: ObservableObject {
         if inMemory {
             container.persistentStoreDescriptions.first?.url = URL(fileURLWithPath: "/dev/null")
         }
+
+        self.defaults = defaults // Unlock Manager
 
         container.loadPersistentStores { _, error in
             if let error = error {
@@ -182,7 +201,7 @@ class DataController: ObservableObject {
         return try? container.viewContext.existingObject(with: id) as? Item
     }
 
-    // MARK//: - Notifications
+    // MARK: - Notifications
 
     private func requestNotifications(completion: @escaping (Bool) -> Void) {
         let center = UNUserNotificationCenter.current()
@@ -200,7 +219,7 @@ class DataController: ObservableObject {
             case .notDetermined:
                 self.requestNotifications { success in
                 if success {
-                        self.placeReminders(for: project, completion:                     completion)
+                        self.placeReminders(for: project, completion: completion)
                 } else {
                 DispatchQueue.main.async {
                         completion(false)
@@ -255,9 +274,16 @@ class DataController: ObservableObject {
                 }
             }
         }
-
     }
 
+    // MARK: - App store review alert
+    func appLaunched() {
+        guard count(for: Project.fetchRequest()) >= 5 else { return }
+        let allScenes = UIApplication.shared.connectedScenes
+        let scene = allScenes.first { $0.activationState == .foregroundActive }
 
+        if let windowScene = scene as? UIWindowScene {
+            SKStoreReviewController.requestReview(in: windowScene)
+        }
+    }
 }
-
