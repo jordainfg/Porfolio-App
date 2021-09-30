@@ -12,6 +12,8 @@ struct MultiPlatformPortfolioApp: App {
     @StateObject var dataController: DataController
     @Environment(\.scenePhase) var scenePhase
     @StateObject var unlockManager: UnlockManager
+    @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
+    
     init() {
         let dataController = DataController()
         let unlockManager = UnlockManager(dataController: dataController)

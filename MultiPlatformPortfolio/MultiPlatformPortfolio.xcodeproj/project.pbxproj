@@ -72,6 +72,8 @@
 		5E68175726FC799900AB3AEA /* UnlockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E68175626FC799900AB3AEA /* UnlockView.swift */; };
 		5E9105B626F0E5C900EECCCC /* MultiPlatformPortfolioTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9105B526F0E5C900EECCCC /* MultiPlatformPortfolioTests.swift */; };
 		5E9105BD26F0E61E00EECCCC /* AssetTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9105BC26F0E61E00EECCCC /* AssetTest.swift */; };
+		5EC718942705DB9400AB9B28 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC718932705DB9400AB9B28 /* AppDelegate.swift */; };
+		5EC718962705DBA400AB9B28 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC718952705DBA400AB9B28 /* SceneDelegate.swift */; };
 		5EDBAAC926F336A1000ADAEE /* DecodableDictionary.json in Resources */ = {isa = PBXBuildFile; fileRef = 5EDBAAC826F336A1000ADAEE /* DecodableDictionary.json */; };
 		5EDBAACB26F337D1000ADAEE /* DecodableString.json in Resources */ = {isa = PBXBuildFile; fileRef = 5EDBAACA26F337D1000ADAEE /* DecodableString.json */; };
 		5EDBAACD26F374E1000ADAEE /* PreformanceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EDBAACC26F374E1000ADAEE /* PreformanceTests.swift */; };
@@ -149,6 +151,8 @@
 		5E9105B326F0E5C900EECCCC /* MultiPlatformPortfolioTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MultiPlatformPortfolioTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E9105B526F0E5C900EECCCC /* MultiPlatformPortfolioTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiPlatformPortfolioTests.swift; sourceTree = "<group>"; };
 		5E9105BC26F0E61E00EECCCC /* AssetTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetTest.swift; sourceTree = "<group>"; };
+		5EC718932705DB9400AB9B28 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		5EC718952705DBA400AB9B28 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		5EDBAAC826F336A1000ADAEE /* DecodableDictionary.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = DecodableDictionary.json; sourceTree = "<group>"; };
 		5EDBAACA26F337D1000ADAEE /* DecodableString.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = DecodableString.json; sourceTree = "<group>"; };
 		5EDBAACC26F374E1000ADAEE /* PreformanceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreformanceTests.swift; sourceTree = "<group>"; };
@@ -207,6 +211,8 @@
 			isa = PBXGroup;
 			children = (
 				5E5577E626F0A1C300FD67F9 /* MultiPlatformPortfolioApp.swift */,
+				5EC718932705DB9400AB9B28 /* AppDelegate.swift */,
+				5EC718952705DBA400AB9B28 /* SceneDelegate.swift */,
 				5EE3B0B126F0A43400401C2E /* ContentView.swift */,
 				5EF66B3126F8CE4F0081D732 /* HapticEngine.swift */,
 				5E55781826F0A1DE00FD67F9 /* DataController.swift */,
@@ -567,6 +573,7 @@
 				5E55782326F0A1DE00FD67F9 /* Award.swift in Sources */,
 				5EE3B0B226F0A43400401C2E /* ContentView.swift in Sources */,
 				5E55784526F0A1DE00FD67F9 /* SelectSomethingView.swift in Sources */,
+				5EC718942705DB9400AB9B28 /* AppDelegate.swift in Sources */,
 				5E5577F426F0A1C400FD67F9 /* MultiPlatformPortfolioApp.swift in Sources */,
 				5E62133B26FB425300A14A54 /* UnlockManager.swift in Sources */,
 				5E55783526F0A1DE00FD67F9 /* EditProjectView.swift in Sources */,
@@ -574,6 +581,7 @@
 				5E68175726FC799900AB3AEA /* UnlockView.swift in Sources */,
 				5E55781D26F0A1DE00FD67F9 /* ItemRowView.swift in Sources */,
 				5E55783B26F0A1DE00FD67F9 /* ProjectHeaderView.swift in Sources */,
+				5EC718962705DBA400AB9B28 /* SceneDelegate.swift in Sources */,
 				5E55784726F0A1DE00FD67F9 /* DataController.swift in Sources */,
 				5E55784926F0A1DE00FD67F9 /* ProjectSummaryView.swift in Sources */,
 				5E55781F26F0A1DE00FD67F9 /* ItemListView.swift in Sources */,

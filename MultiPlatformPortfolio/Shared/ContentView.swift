@@ -11,6 +11,8 @@ struct ContentView: View {
 
     @SceneStorage("selectedView") var selectedView: String?
 
+    @EnvironmentObject var dataController: DataController
+    
     var body: some View {
         TabView(selection: $selectedView) {
                 HomeView()
@@ -42,10 +44,15 @@ struct ContentView: View {
                     }
 
             }.onContinueUserActivity(CSSearchableItemActionType, perform: moveToHome)
+             .onOpenURL(perform: openURL)
         }
 
     func moveToHome(_ input: Any) {
         selectedView = HomeView.tag
+    }
+    func openURL(_ url: URL) {
+        selectedView = ProjectsView.openTag
+        _ = dataController.addProject()
     }
 }
 
