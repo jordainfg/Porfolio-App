@@ -12,7 +12,9 @@ struct ContentView: View {
     @SceneStorage("selectedView") var selectedView: String?
 
     @EnvironmentObject var dataController: DataController
-    
+
+    private let newProjectActivity = "com.featurex.MultiPlatformPortfolio"
+
     var body: some View {
         TabView(selection: $selectedView) {
                 HomeView()
@@ -45,6 +47,12 @@ struct ContentView: View {
 
             }.onContinueUserActivity(CSSearchableItemActionType, perform: moveToHome)
              .onOpenURL(perform: openURL)
+             .userActivity(newProjectActivity) { activity in // Siri shortcuts. 
+                 activity.isEligibleForPrediction = true
+                 activity.title = "New Project"
+             }
+             .onContinueUserActivity(newProjectActivity, perform: createProject)// Siri shortcuts.
+
         }
 
     func moveToHome(_ input: Any) {
@@ -53,6 +61,12 @@ struct ContentView: View {
     func openURL(_ url: URL) {
         selectedView = ProjectsView.openTag
         _ = dataController.addProject()
+    }
+
+    /// Adds a new project when the user selects add new project in Siri Shortcuts.
+    func createProject(_ userActivity: NSUserActivity) {
+        selectedView = ProjectsView.openTag
+        dataController.addProject()
     }
 }
 
