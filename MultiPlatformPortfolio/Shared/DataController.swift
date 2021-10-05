@@ -1,7 +1,7 @@
 import CoreData
 import SwiftUI
 import CoreSpotlight
-import UserNotifications
+import WidgetKit
 import StoreKit
 /// An environment singleton responsible for managing our Core Data stack, including handling saving,
 /// counting fetch requests, tracking awards, and dealing with sample data.
@@ -40,6 +40,12 @@ class DataController: ObservableObject {
         // so our data is destroyed after the app finishes running.
         if inMemory {
             container.persistentStoreDescriptions.first?.url = URL(fileURLWithPath: "/dev/null")
+        } else {
+            let groupID = "group.com.featurex.MultiPlatformPortfolio"
+
+            if let url = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: groupID) {
+                container.persistentStoreDescriptions.first?.url = url.appendingPathComponent("MultiPlatformPortfolioApp.sqlite")
+            }
         }
 
         self.defaults = defaults // Unlock Manager
@@ -116,6 +122,7 @@ class DataController: ObservableObject {
     func save() {
         if container.viewContext.hasChanges {
             try? container.viewContext.save()
+            WidgetCenter.shared.reloadAllTimelines()
         }
     }
 
@@ -146,8 +153,7 @@ class DataController: ObservableObject {
         (try? container.viewContext.count(for: fetchRequest)) ?? 0
     }
 
-   
-    // integrate with Spotlight
+    // MARK: integrate with Spotlight
     func update(_ item: Item) {
         let itemID = item.objectID.uriRepresentation().absoluteString
         let projectID = item.project?.objectID.uriRepresentation().absoluteString
@@ -193,6 +199,26 @@ class DataController: ObservableObject {
         }
     }
 
+    // MARK: Items
+    func fetchRequestForTopItems(count: Int) -> NSFetchRequest<Item> {
+        let itemRequest: NSFetchRequest<Item> = Item.fetchRequest()
+
+        let completedPredicate = NSPredicate(format: "completed = false")
+        let openPredicate = NSPredicate(format: "project.closed = false")
+        let compoundPredicate = NSCompoundPredicate(type: .and, subpredicates: [completedPredicate, openPredicate])
+        itemRequest.predicate = compoundPredicate
+
+        itemRequest.sortDescriptors = [
+            NSSortDescriptor(keyPath: \Item.priority, ascending: false)
+        ]
+
+        itemRequest.fetchLimit = count
+        return itemRequest
+    }
+
+    func results<T: NSManagedObject>(for fetchRequest: NSFetchRequest<T>) -> [T] {
+        return (try? container.viewContext.fetch(fetchRequest)) ?? []
+    }
 
     // MARK: - App store review alert
     func appLaunched() {

@@ -36,12 +36,9 @@ extension DataController {
     }
 
     func removeReminders(for project: Project) {
-
         let center = UNUserNotificationCenter.current()
-        
         let id = project.objectID.uriRepresentation().absoluteString
         center.removePendingNotificationRequests(withIdentifiers: [id])
-
     }
 
     private func placeReminders(for project: Project, completion: @escaping (Bool) -> Void) {

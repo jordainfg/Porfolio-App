@@ -138,7 +138,7 @@ struct ProjectsView: View {
     }
 
     func addProject() {
-            withAnimation{
+            withAnimation {
                  if dataController.addProject() == false {
                     showingUnlockView.toggle()
                     }

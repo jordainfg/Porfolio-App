@@ -115,7 +115,4 @@ class UnlockManager: NSObject, ObservableObject, SKPaymentTransactionObserver, S
     func restore() {
       SKPaymentQueue.default().restoreCompletedTransactions()
     }
-
-    
-
 }
