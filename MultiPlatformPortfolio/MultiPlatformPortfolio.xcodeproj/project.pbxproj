@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		5E157856270B3D2C004B87EE /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E157855270B3D2C004B87EE /* WidgetKit.framework */; platformFilter = maccatalyst; };
 		5E157858270B3D2C004B87EE /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E157857270B3D2C004B87EE /* SwiftUI.framework */; platformFilter = maccatalyst; };
-		5E15785B270B3D2C004B87EE /* PortfolioWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E15785A270B3D2C004B87EE /* PortfolioWidget.swift */; };
+		5E15785B270B3D2C004B87EE /* WidgetBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E15785A270B3D2C004B87EE /* WidgetBundle.swift */; };
 		5E15785D270B3D2D004B87EE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5E15785C270B3D2D004B87EE /* Assets.xcassets */; };
 		5E157861270B3D2D004B87EE /* PortfolioWidgetExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 5E157854270B3D2C004B87EE /* PortfolioWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		5E157867270B42F3004B87EE /* DataController-Reminders.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E157866270B42F3004B87EE /* DataController-Reminders.swift */; };
@@ -26,7 +26,6 @@
 		5E24F28B270C96A60014E39D /* SimpleWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E24F289270C95660014E39D /* SimpleWidget.swift */; };
 		5E24F28C270C96AB0014E39D /* ComplexWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E24F287270C94C60014E39D /* ComplexWidget.swift */; };
 		5E24F28D270C96BF0014E39D /* DataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E24F283270C949B0014E39D /* DataProvider.swift */; };
-		5E24F28E270C96C30014E39D /* PortfolioWidgetEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E24F285270C94A60014E39D /* PortfolioWidgetEntryView.swift */; };
 		5E4EBE8F26F1DB99007EF1AF /* ProjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4EBE8E26F1DB99007EF1AF /* ProjectTests.swift */; };
 		5E5577F426F0A1C400FD67F9 /* MultiPlatformPortfolioApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E5577E626F0A1C300FD67F9 /* MultiPlatformPortfolioApp.swift */; };
 		5E5577F526F0A1C400FD67F9 /* MultiPlatformPortfolioApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E5577E626F0A1C300FD67F9 /* MultiPlatformPortfolioApp.swift */; };
@@ -144,7 +143,7 @@
 		5E157854270B3D2C004B87EE /* PortfolioWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = PortfolioWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E157855270B3D2C004B87EE /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		5E157857270B3D2C004B87EE /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
-		5E15785A270B3D2C004B87EE /* PortfolioWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortfolioWidget.swift; sourceTree = "<group>"; };
+		5E15785A270B3D2C004B87EE /* WidgetBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetBundle.swift; sourceTree = "<group>"; };
 		5E15785C270B3D2D004B87EE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5E15785E270B3D2D004B87EE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5E157866270B42F3004B87EE /* DataController-Reminders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DataController-Reminders.swift"; sourceTree = "<group>"; };
@@ -154,7 +153,6 @@
 		5E20155326F21F71001D9C65 /* ExtensionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionTests.swift; sourceTree = "<group>"; };
 		5E24F27F270C45430014E39D /* PortfolioWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PortfolioWidgetExtension.entitlements; sourceTree = "<group>"; };
 		5E24F283270C949B0014E39D /* DataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataProvider.swift; sourceTree = "<group>"; };
-		5E24F285270C94A60014E39D /* PortfolioWidgetEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortfolioWidgetEntryView.swift; sourceTree = "<group>"; };
 		5E24F287270C94C60014E39D /* ComplexWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplexWidget.swift; sourceTree = "<group>"; };
 		5E24F289270C95660014E39D /* SimpleWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleWidget.swift; sourceTree = "<group>"; };
 		5E4EBE8E26F1DB99007EF1AF /* ProjectTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectTests.swift; sourceTree = "<group>"; };
@@ -260,14 +258,21 @@
 			isa = PBXGroup;
 			children = (
 				5E24F283270C949B0014E39D /* DataProvider.swift */,
-				5E24F285270C94A60014E39D /* PortfolioWidgetEntryView.swift */,
-				5E24F289270C95660014E39D /* SimpleWidget.swift */,
-				5E15785A270B3D2C004B87EE /* PortfolioWidget.swift */,
-				5E24F287270C94C60014E39D /* ComplexWidget.swift */,
+				5E15785A270B3D2C004B87EE /* WidgetBundle.swift */,
+				5E545E68270DA3B1006E0F83 /* Widgets */,
 				5E15785C270B3D2D004B87EE /* Assets.xcassets */,
 				5E15785E270B3D2D004B87EE /* Info.plist */,
 			);
 			path = PortfolioWidget;
+			sourceTree = "<group>";
+		};
+		5E545E68270DA3B1006E0F83 /* Widgets */ = {
+			isa = PBXGroup;
+			children = (
+				5E24F287270C94C60014E39D /* ComplexWidget.swift */,
+				5E24F289270C95660014E39D /* SimpleWidget.swift */,
+			);
+			path = Widgets;
 			sourceTree = "<group>";
 		};
 		5E5577E026F0A1C300FD67F9 = {
@@ -674,7 +679,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5E15785B270B3D2C004B87EE /* PortfolioWidget.swift in Sources */,
+				5E15785B270B3D2C004B87EE /* WidgetBundle.swift in Sources */,
 				5E24F281270C8D470014E39D /* Project+CoreDataHelpers.swift in Sources */,
 				5E24F28C270C96AB0014E39D /* ComplexWidget.swift in Sources */,
 				5E15786A270B4405004B87EE /* Item+CoreDataHelpers.swift in Sources */,
@@ -682,7 +687,6 @@
 				5E24F28B270C96A60014E39D /* SimpleWidget.swift in Sources */,
 				5E24F28D270C96BF0014E39D /* DataProvider.swift in Sources */,
 				5E157869270B43C0004B87EE /* MultiPlatformPortfolioApp.xcdatamodeld in Sources */,
-				5E24F28E270C96C30014E39D /* PortfolioWidgetEntryView.swift in Sources */,
 				5E157868270B43B5004B87EE /* DataController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

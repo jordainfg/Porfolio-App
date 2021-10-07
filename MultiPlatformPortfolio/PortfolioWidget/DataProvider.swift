@@ -3,7 +3,7 @@ import WidgetKit
 // Determines how data for our widget is fetched.
 struct Provider: TimelineProvider {
     typealias Entry = SimpleEntry
-    
+
     func placeholder(in context: Context) -> SimpleEntry {
         SimpleEntry(date: Date(), items: [Item.example])
     }
@@ -33,4 +33,3 @@ struct SimpleEntry: TimelineEntry {
     let date: Date
     let items: [Item]
 }
-

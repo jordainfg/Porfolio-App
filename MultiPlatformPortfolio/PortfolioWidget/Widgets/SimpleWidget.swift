@@ -8,7 +8,7 @@
 import SwiftUI
 import WidgetKit
 
-struct PortfolioWidgetEntryView: View {
+struct SimpleWidgetEntryView: View {
     var entry: Provider.Entry
 
     var body: some View {
@@ -26,12 +26,12 @@ struct PortfolioWidgetEntryView: View {
 }
 
 // MARK: - Widgets
-struct SimplePortfolioWidget: Widget { // Determines how our widget should be configured
+struct SimpleWidget: Widget { // Determines how our widget should be configured
     let kind: String = "SimplePortfolioWidget"
 
     var body: some WidgetConfiguration {
         StaticConfiguration(kind: kind, provider: Provider()) { entry in
-            PortfolioWidgetEntryView(entry: entry)
+            SimpleWidgetEntryView(entry: entry)
         }
         .configurationDisplayName("Up next…")
         .description("Your #1 top-priority item.")
@@ -40,7 +40,7 @@ struct SimplePortfolioWidget: Widget { // Determines how our widget should be co
 
 struct PortfolioWidget_Previews: PreviewProvider {
  static var previews: some View {
-    PortfolioWidgetEntryView(entry: SimpleEntry(date: Date(), items: [Item.example]))
+     SimpleWidgetEntryView(entry: SimpleEntry(date: Date(), items: [Item.example]))
       .previewContext(WidgetPreviewContext(family: .systemSmall))
     }
 }

@@ -50,17 +50,19 @@ class DataController: ObservableObject {
 
         self.defaults = defaults // Unlock Manager
 
-        container.loadPersistentStores { _, error in
-            if let error = error {
-                fatalError("Fatal error loading store: \(error.localizedDescription)")
-            }
+container.loadPersistentStores { _, error in
+    if let error = error {
+        fatalError("Fatal error loading store: \(error.localizedDescription)")
+    }
 
-            #if DEBUG
-            if CommandLine.arguments.contains("enable-testing") {
-                self.deleteAll()
-            }
-            #endif
-        }
+    self.container.viewContext.automaticallyMergesChangesFromParent = true
+
+    #if DEBUG
+    if CommandLine.arguments.contains("enable-testing") {
+        self.deleteAll()
+    }
+    #endif
+}
     }
 
     static var preview: DataController = {
@@ -114,7 +116,7 @@ class DataController: ObservableObject {
             }
         }
 
-        try viewContext.save() // write to PERMENANT storage
+        try viewContext.save() // write to PERMANENT storage
     }
 
     /// Saves our Core Data context if(“if and only if”) there are changes. This silently ignores
@@ -141,12 +143,24 @@ class DataController: ObservableObject {
 
     func deleteAll() {
         let fetchRequest1: NSFetchRequest<NSFetchRequestResult> = Item.fetchRequest()
-        let batchDeleteRequest1 = NSBatchDeleteRequest(fetchRequest: fetchRequest1)
-        _ = try? container.viewContext.execute(batchDeleteRequest1)
+        delete(fetchRequest1)
 
         let fetchRequest2: NSFetchRequest<NSFetchRequestResult> = Project.fetchRequest()
-        let batchDeleteRequest2 = NSBatchDeleteRequest(fetchRequest: fetchRequest2)
-        _ = try? container.viewContext.execute(batchDeleteRequest2)
+        delete(fetchRequest2)
+    }
+
+    private func delete(_ fetchRequest: NSFetchRequest<NSFetchRequestResult>) {
+        // We’re specifically asking the batch delete request to send back all the object IDs that got deleted.
+        let batchDeleteRequest1 = NSBatchDeleteRequest(fetchRequest: fetchRequest)
+        batchDeleteRequest1.resultType = .resultTypeObjectIDs
+        // That array of object IDs goes into a dictionary with the key NSDeletedObjectsKey,
+        // with a default empty array if it can’t be read.
+        if let delete = try? container.viewContext.execute(batchDeleteRequest1) as? NSBatchDeleteResult {
+            let changes = [NSDeletedObjectsKey: delete.result as? [NSManagedObjectID] ?? []]
+            // That dictionary goes into the mergeChanges() method, which is what
+            // updates our view context with the changes we just made to the persistent store.
+            NSManagedObjectContext.mergeChanges(fromRemoteContextSave: changes, into: [container.viewContext])
+        }
     }
 
     func count<T>(for fetchRequest: NSFetchRequest<T>) -> Int {

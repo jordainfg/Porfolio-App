@@ -70,6 +70,8 @@ struct HomeView: View {
             }
             .background(Color.systemGroupedBackground.ignoresSafeArea())
             .navigationTitle("Home")
+            .navigationBarItems(leading: Button("Delete", action: dataController.deleteAll),
+                                trailing: Button("Add", action: addData))
             .onContinueUserActivity(CSSearchableItemActionType, perform: loadSpotlightItem)
         }
     }
@@ -82,6 +84,14 @@ struct HomeView: View {
 
     func selectItem(with identifier: String) {
         selectedItem = dataController.item(with: identifier)
+    }
+    func addData() {
+        do {
+            try dataController.createSampleData()
+        } catch {
+
+        }
+
     }
 }
 

@@ -58,7 +58,7 @@ struct ComplexPortfolioWidget: Widget { // Determines how our widget should be c
 
     var body: some WidgetConfiguration {
         StaticConfiguration(kind: kind, provider: Provider()) { entry in
-            PortfolioWidgetEntryView(entry: entry)
+            PortfolioWidgetMultipleEntryView(entry: entry)
         }
         .configurationDisplayName("Up next…")
         .description("Your most important items.")
