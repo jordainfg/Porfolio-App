@@ -7,7 +7,7 @@
 // swiftlint:disable all
 
 import SwiftUI
-
+import CloudKit
 struct EditProjectView: View {
     @ObservedObject var project: Project
 
@@ -99,6 +99,25 @@ struct EditProjectView: View {
                 primaryButton: .default(Text("Check Settings"), action: showAppSettings),
                 secondaryButton: .cancel()
             )
+        }
+        .toolbar {
+            Button {
+                let records = project.prepareCloudRecords()
+                let operation = CKModifyRecordsOperation(recordsToSave: records, recordIDsToDelete: nil)
+                operation.savePolicy = .allKeys
+
+                operation.modifyRecordsCompletionBlock = { _, _, error in
+                    if let error = error {
+                        print("Error: \(error.localizedDescription)")
+                    } else {
+                        print("Upload to iCloud completed successfully")
+                    }
+                }
+
+                CKContainer.default().publicCloudDatabase.add(operation)
+            } label: {
+                Label("Upload to iCloud", systemImage: "icloud.and.arrow.up")
+            }
         }
     }
 

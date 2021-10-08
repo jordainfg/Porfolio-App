@@ -86,6 +86,11 @@
 		5E68175326FC76F100AB3AEA /* ButtonStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E68175226FC76F100AB3AEA /* ButtonStyles.swift */; };
 		5E68175526FC780200AB3AEA /* ProductView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E68175426FC780200AB3AEA /* ProductView.swift */; };
 		5E68175726FC799900AB3AEA /* UnlockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E68175626FC799900AB3AEA /* UnlockView.swift */; };
+		5E68274927106AD300B63AAF /* SharedProject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E68274827106AD300B63AAF /* SharedProject.swift */; };
+		5E68274B27106F5100B63AAF /* SharedItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E68274A27106F5100B63AAF /* SharedItem.swift */; };
+		5E68274D2710746200B63AAF /* LoadStates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E68274C2710746200B63AAF /* LoadStates.swift */; };
+		5E6827522710798E00B63AAF /* SharedProjectsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E6827512710798E00B63AAF /* SharedProjectsView.swift */; };
+		5E6827542710851900B63AAF /* SharedItemsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E6827532710851900B63AAF /* SharedItemsView.swift */; };
 		5E9105B626F0E5C900EECCCC /* MultiPlatformPortfolioTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9105B526F0E5C900EECCCC /* MultiPlatformPortfolioTests.swift */; };
 		5E9105BD26F0E61E00EECCCC /* AssetTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9105BC26F0E61E00EECCCC /* AssetTest.swift */; };
 		5EC718942705DB9400AB9B28 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC718932705DB9400AB9B28 /* AppDelegate.swift */; };
@@ -197,6 +202,11 @@
 		5E68175226FC76F100AB3AEA /* ButtonStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonStyles.swift; sourceTree = "<group>"; };
 		5E68175426FC780200AB3AEA /* ProductView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductView.swift; sourceTree = "<group>"; };
 		5E68175626FC799900AB3AEA /* UnlockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnlockView.swift; sourceTree = "<group>"; };
+		5E68274827106AD300B63AAF /* SharedProject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedProject.swift; sourceTree = "<group>"; };
+		5E68274A27106F5100B63AAF /* SharedItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedItem.swift; sourceTree = "<group>"; };
+		5E68274C2710746200B63AAF /* LoadStates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadStates.swift; sourceTree = "<group>"; };
+		5E6827512710798E00B63AAF /* SharedProjectsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedProjectsView.swift; sourceTree = "<group>"; };
+		5E6827532710851900B63AAF /* SharedItemsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedItemsView.swift; sourceTree = "<group>"; };
 		5E9105B326F0E5C900EECCCC /* MultiPlatformPortfolioTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MultiPlatformPortfolioTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E9105B526F0E5C900EECCCC /* MultiPlatformPortfolioTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiPlatformPortfolioTests.swift; sourceTree = "<group>"; };
 		5E9105BC26F0E61E00EECCCC /* AssetTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetTest.swift; sourceTree = "<group>"; };
@@ -342,6 +352,18 @@
 			path = Unlock;
 			sourceTree = "<group>";
 		};
+		5E68274E271076D700B63AAF /* Community */ = {
+			isa = PBXGroup;
+			children = (
+				5E68274827106AD300B63AAF /* SharedProject.swift */,
+				5E68274A27106F5100B63AAF /* SharedItem.swift */,
+				5E68274C2710746200B63AAF /* LoadStates.swift */,
+				5E6827512710798E00B63AAF /* SharedProjectsView.swift */,
+				5E6827532710851900B63AAF /* SharedItemsView.swift */,
+			);
+			path = Community;
+			sourceTree = "<group>";
+		};
 		5E9105B426F0E5C900EECCCC /* MultiPlatformPortfolioTests */ = {
 			isa = PBXGroup;
 			children = (
@@ -413,6 +435,7 @@
 		5EE3B0BA26F0AD7800401C2E /* Activities */ = {
 			isa = PBXGroup;
 			children = (
+				5E68274E271076D700B63AAF /* Community */,
 				5EE3B0BB26F0AD8500401C2E /* Home */,
 				5EE3B0BC26F0AD8E00401C2E /* Projects */,
 				5EE3B0BD26F0ADA300401C2E /* Awards */,
@@ -703,6 +726,7 @@
 				5EC718942705DB9400AB9B28 /* AppDelegate.swift in Sources */,
 				5E5577F426F0A1C400FD67F9 /* MultiPlatformPortfolioApp.swift in Sources */,
 				5E62133B26FB425300A14A54 /* UnlockManager.swift in Sources */,
+				5E6827542710851900B63AAF /* SharedItemsView.swift in Sources */,
 				5E55783526F0A1DE00FD67F9 /* EditProjectView.swift in Sources */,
 				5E55782926F0A1DE00FD67F9 /* Sequence-Sorting.swift in Sources */,
 				5E68175726FC799900AB3AEA /* UnlockView.swift in Sources */,
@@ -712,7 +736,9 @@
 				5EC718962705DBA400AB9B28 /* SceneDelegate.swift in Sources */,
 				5E55784726F0A1DE00FD67F9 /* DataController.swift in Sources */,
 				5E55784926F0A1DE00FD67F9 /* ProjectSummaryView.swift in Sources */,
+				5E68274B27106F5100B63AAF /* SharedItem.swift in Sources */,
 				5E55781F26F0A1DE00FD67F9 /* ItemListView.swift in Sources */,
+				5E68274D2710746200B63AAF /* LoadStates.swift in Sources */,
 				5E55782D26F0A1DE00FD67F9 /* EditItemView.swift in Sources */,
 				5E55782726F0A1DE00FD67F9 /* HomeView.swift in Sources */,
 				5E68175126FC760900AB3AEA /* SKProduct-LocalizedPrice.swift in Sources */,
@@ -723,6 +749,8 @@
 				5E55784126F0A1DE00FD67F9 /* Project+CoreDataHelpers.swift in Sources */,
 				5E55782126F0A1DE00FD67F9 /* Color+ext.swift in Sources */,
 				5E55783926F0A1DE00FD67F9 /* Item+CoreDataHelpers.swift in Sources */,
+				5E6827522710798E00B63AAF /* SharedProjectsView.swift in Sources */,
+				5E68274927106AD300B63AAF /* SharedProject.swift in Sources */,
 				5E55784F26F0A1DE00FD67F9 /* ProjectsView.swift in Sources */,
 				5EF66B3226F8CE4F0081D732 /* HapticEngine.swift in Sources */,
 				5E55784B26F0A1DE00FD67F9 /* AwardsView.swift in Sources */,
