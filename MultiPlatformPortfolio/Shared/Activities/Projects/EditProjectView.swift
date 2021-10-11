@@ -38,6 +38,8 @@ struct EditProjectView: View {
 
     @State private var cloudStatus = CloudStatus.checking
 
+    @State private var cloudError: CloudError?
+
     init(project: Project) {
         self.project = project
         _title = State(wrappedValue: project.projectTitle)
@@ -67,6 +69,7 @@ struct EditProjectView: View {
                 }
                 .padding(.vertical)
             }
+
             // swiftlint:disable:next line_length
             Section(footer: Text("Closing a project moves it from the Open to Closed tab; deleting it removes the project completely.")) {
                 Button(project.closed ? "Reopen this project" : "Close this project") {
@@ -111,6 +114,12 @@ struct EditProjectView: View {
                 secondaryButton: .cancel()
             )
         }
+        .alert(item: $cloudError) { error in
+            Alert(
+                title: Text("There was an error"),
+                message: Text(error.message)
+            )
+        }
         .sheet(isPresented: $showingSignIn, content: SignInView.init)
         .toolbar {
             switch cloudStatus {
@@ -136,6 +145,10 @@ struct EditProjectView: View {
             operation.savePolicy = .allKeys
 
             operation.modifyRecordsCompletionBlock = { _, _, error in
+                if let error = error {
+                        cloudError = error.getCloudKitError()
+                    }
+
                 updateUItoCloudStatus()
             }
 

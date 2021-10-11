@@ -15,6 +15,8 @@ struct SharedItemsView: View {
 
     @State private var messagesLoadState = LoadState.inactive
 
+    @State private var cloudError: CloudError?
+
     @ViewBuilder var messagesFooter: some View {
         if username == nil {
             Button("Sign in to comment", action: signIn)
@@ -75,36 +77,46 @@ struct SharedItemsView: View {
             fetchSharedItems()
             fetchChatMessages()
         }
+        .alert(item: $cloudError) { error in
+            Alert(
+                title: Text("There was an error"),
+                message: Text(error.message)
+            )
+        }
         .sheet(isPresented: $showingSignIn, content: SignInView.init)
     }
 
     func fetchChatMessages() {
         guard messagesLoadState == .inactive else { return }
-           messagesLoadState = .loading
+        messagesLoadState = .loading
 
-           let recordID = CKRecord.ID(recordName: project.id)
-           let reference = CKRecord.Reference(recordID: recordID, action: .none)
-           let pred = NSPredicate(format: "project == %@", reference)
-           let sort = NSSortDescriptor(key: "creationDate", ascending: true)
-           let query = CKQuery(recordType: "Message", predicate: pred)
-           query.sortDescriptors = [sort]
+        let recordID = CKRecord.ID(recordName: project.id)
+        let reference = CKRecord.Reference(recordID: recordID, action: .none)
+        let pred = NSPredicate(format: "project == %@", reference)
+        let sort = NSSortDescriptor(key: "creationDate", ascending: true)
+        let query = CKQuery(recordType: "Message", predicate: pred)
+        query.sortDescriptors = [sort]
 
-           let operation = CKQueryOperation(query: query)
-           operation.desiredKeys = ["from", "text"]
+        let operation = CKQueryOperation(query: query)
+        operation.desiredKeys = ["from", "text"]
 
-           operation.recordFetchedBlock = { record in
-               let message = ChatMessage(from: record)
-               messages.append(message)
-               messagesLoadState = .success
-           }
+        operation.recordFetchedBlock = { record in
+            let message = ChatMessage(from: record)
+            messages.append(message)
+            messagesLoadState = .success
+        }
 
-           operation.queryCompletionBlock = { _, _ in
-               if messages.isEmpty {
-                   messagesLoadState = .noResults
-               }
-           }
+        operation.queryCompletionBlock = { _, error in
+            if let error = error {
+                cloudError = CloudError(from: error)
+            }
 
-           CKContainer.default().publicCloudDatabase.add(operation)
+            if messages.isEmpty {
+                messagesLoadState = .noResults
+            }
+        }
+
+        CKContainer.default().publicCloudDatabase.add(operation)
     }
 
     func signIn() {
@@ -128,7 +140,7 @@ struct SharedItemsView: View {
 
         CKContainer.default().publicCloudDatabase.save(message) { record, error in
             if let error = error {
-                print(error.localizedDescription)
+                cloudError = error.getCloudKitError()
                 newChatText = backupChatText
             } else if let record = record {
                 let message = ChatMessage(from: record)
@@ -163,7 +175,11 @@ struct SharedItemsView: View {
             itemsLoadState = .success
         }
 
-        operation.queryCompletionBlock = { _, _ in
+        operation.queryCompletionBlock = { _, error in
+            if let error = error {
+                cloudError = error.getCloudKitError()
+            }
+
             if items.isEmpty {
                 itemsLoadState = .noResults
             }
