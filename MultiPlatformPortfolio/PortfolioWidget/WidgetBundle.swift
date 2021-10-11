@@ -9,8 +9,3 @@ struct PortfolioWidgets: WidgetBundle {
         ComplexPortfolioWidget()
     }
 }
-
-
-
-// MARK: - Preview
-// Determines how our widget should be previewed inside Xcode

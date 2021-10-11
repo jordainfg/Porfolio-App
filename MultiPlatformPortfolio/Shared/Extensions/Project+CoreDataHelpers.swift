@@ -103,19 +103,21 @@ extension Project {
         }
     }
 
-
-    func prepareCloudRecords() -> [CKRecord] {
+    /// Creates a `CKRecord` from a `Project` -> maps `[Item]` of that `Project` to `[CKRecord]`
+    /// - Parameter username: the username of the currently logged in user.
+    /// - Returns: [CKRecord]
+    func prepareCloudRecords(username: String) -> [CKRecord] {
         let parentName = objectID.uriRepresentation().absoluteString
         let parentID = CKRecord.ID(recordName: parentName)
         let parent = CKRecord(recordType: "Project", recordID: parentID)
-        
+
         parent["title"] = projectTitle
         parent["detail"] = projectDetail
-        parent["owner"] = "Jordain"
+        parent["owner"] = username
         parent["closed"] = closed
 
         // map [Item] to [CKRecord]
-        var records = projectItemsDefaultSorted.map { item -> CKRecord in
+        var itemRecords = projectItemsDefaultSorted.map { item -> CKRecord in
             let childName = item.objectID.uriRepresentation().absoluteString
             let childID = CKRecord.ID(recordName: childName)
             let child = CKRecord(recordType: "Item", recordID: childID)
@@ -126,7 +128,24 @@ extension Project {
             return child
         }
 
-        records.append(parent) // set newly made [CKRecord] to parent Project
-        return records
+        itemRecords.append(parent) // set newly made [CKRecord] to parent Project
+        return itemRecords
+    }
+
+    func checkCloudStatus(_ completion: @escaping (Bool) -> Void) {
+        let name = objectID.uriRepresentation().absoluteString
+        let id = CKRecord.ID(recordName: name)
+        let operation = CKFetchRecordsOperation(recordIDs: [id])
+        operation.desiredKeys = ["recordID"]
+
+        operation.fetchRecordsCompletionBlock = { records, _ in
+            if let records = records {
+                completion(records.count == 1)
+            } else {
+                completion(false)
+            }
+        }
+
+        CKContainer.default().publicCloudDatabase.add(operation)
     }
 }

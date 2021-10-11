@@ -9,6 +9,11 @@
 import SwiftUI
 import CloudKit
 struct EditProjectView: View {
+
+    enum CloudStatus {
+        case checking, exists, absent
+    }
+    
     @ObservedObject var project: Project
 
     @Environment(\.presentationMode) var presentationMode
@@ -20,12 +25,18 @@ struct EditProjectView: View {
     @State private var color: String
     @State private var showingDeleteConfirm = false
     @State private var showingNotificationsError = false
+
     let colorColumns = [
         GridItem(.adaptive(minimum: 44))
     ]
 
     @State private var remindMeToggle: Bool
     @State private var reminderTime: Date
+
+    @AppStorage("username") var username: String?
+    @State private var showingSignIn = false
+
+    @State private var cloudStatus = CloudStatus.checking
 
     init(project: Project) {
         self.project = project
@@ -47,8 +58,8 @@ struct EditProjectView: View {
     var body: some View {
         Form {
             Section(header: Text("Basic settings")) {
-                TextField("Project name", text: $title)
-                TextField("Description of this project", text: $detail)
+                TextField("Project name", text: $title.onChange(update))
+                TextField("Description of this project", text: $detail.onChange(update))
             }
             Section(header: Text("Custom project color")) {
                 LazyVGrid(columns: colorColumns) {
@@ -100,25 +111,65 @@ struct EditProjectView: View {
                 secondaryButton: .cancel()
             )
         }
+        .sheet(isPresented: $showingSignIn, content: SignInView.init)
         .toolbar {
-            Button {
-                let records = project.prepareCloudRecords()
-                let operation = CKModifyRecordsOperation(recordsToSave: records, recordIDsToDelete: nil)
-                operation.savePolicy = .allKeys
-
-                operation.modifyRecordsCompletionBlock = { _, _, error in
-                    if let error = error {
-                        print("Error: \(error.localizedDescription)")
-                    } else {
-                        print("Upload to iCloud completed successfully")
-                    }
+            switch cloudStatus {
+            case .checking:
+                ProgressView()
+            case .exists:
+                Button(action: removeFromCloud) {
+                    Label("Remove from iCloud", systemImage: "icloud.slash")
                 }
-
-                CKContainer.default().publicCloudDatabase.add(operation)
-            } label: {
-                Label("Upload to iCloud", systemImage: "icloud.and.arrow.up")
+            case .absent:
+                Button(action: uploadToCloud) {
+                    Label("Upload to iCloud", systemImage: "icloud.and.arrow.up")
+                }
             }
         }
+        .onAppear(perform: updateUItoCloudStatus)
+    }
+
+    func uploadToCloud(){
+        if let username = username {
+            let records = project.prepareCloudRecords(username: username)
+            let operation = CKModifyRecordsOperation(recordsToSave: records, recordIDsToDelete: nil)
+            operation.savePolicy = .allKeys
+
+            operation.modifyRecordsCompletionBlock = { _, _, error in
+                updateUItoCloudStatus()
+            }
+
+            cloudStatus = .checking
+
+            CKContainer.default().publicCloudDatabase.add(operation)
+        } else {
+            showingSignIn = true
+        }
+
+    }
+
+    func updateUItoCloudStatus() {
+        project.checkCloudStatus { exists in
+            if exists {
+                cloudStatus = .exists
+            } else {
+                cloudStatus = .absent
+            }
+        }
+    }
+
+    func removeFromCloud() {
+        let name = project.objectID.uriRepresentation().absoluteString
+        let id = CKRecord.ID(recordName: name)
+
+        let operation = CKModifyRecordsOperation(recordsToSave: nil, recordIDsToDelete: [id])
+
+        operation.modifyRecordsCompletionBlock = { _, _, _ in
+            updateUItoCloudStatus()
+        }
+
+        cloudStatus = .checking
+        CKContainer.default().publicCloudDatabase.add(operation)
     }
 
     /// Opens the Settings of the iOS Device, and displays to notification settings.
