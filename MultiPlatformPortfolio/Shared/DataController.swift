@@ -143,13 +143,13 @@ container.loadPersistentStores { _, error in
 
     func deleteAll() {
         let fetchRequest1: NSFetchRequest<NSFetchRequestResult> = Item.fetchRequest()
-        delete(fetchRequest1)
+        batchDelete(fetchRequest1)
 
         let fetchRequest2: NSFetchRequest<NSFetchRequestResult> = Project.fetchRequest()
-        delete(fetchRequest2)
+        batchDelete(fetchRequest2)
     }
 
-    private func delete(_ fetchRequest: NSFetchRequest<NSFetchRequestResult>) {
+    private func batchDelete(_ fetchRequest: NSFetchRequest<NSFetchRequestResult>) {
         // We’re specifically asking the batch delete request to send back all the object IDs that got deleted.
         let batchDeleteRequest1 = NSBatchDeleteRequest(fetchRequest: fetchRequest)
         batchDeleteRequest1.resultType = .resultTypeObjectIDs

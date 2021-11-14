@@ -9,11 +9,12 @@ import SwiftUI
 
 @main // swiftlint:disable: next line_length
 struct MultiPlatformPortfolioApp: App {
-    @StateObject var dataController: DataController
+
     @Environment(\.scenePhase) var scenePhase
-    @StateObject var unlockManager: UnlockManager
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
 
+    @StateObject var dataController: DataController
+    @StateObject var unlockManager: UnlockManager
     init() {
         let dataController = DataController()
         let unlockManager = UnlockManager(dataController: dataController)
