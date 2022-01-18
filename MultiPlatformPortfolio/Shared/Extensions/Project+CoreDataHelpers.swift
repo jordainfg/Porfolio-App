@@ -28,6 +28,8 @@ extension Project {
     var projectTitle: String {
         title ?? "New Project"
     }
+    
+   
 
     var projectDetail: String {
         detail ?? ""
