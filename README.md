@@ -23,4 +23,5 @@ For project:
 
 To make things a little more interesting, we’re going to store another piece of data for projects: a custom color value, representing a simple way for users to differentiate projects using a palette of predetermined colors that look nice.
 
-We’re almost done with Core Data already, but there is one critical part remaining: we need to tell Core Data that every project object has many items inside it. This is called a relationship, and it allows Core Data to do a ton of work for us.
+
+
